@@ -1,0 +1,90 @@
+/* ============================================================
+   RESPONSIVE.CSS
+   ============================================================ */
+
+/* ============================================================
+   MOBILE LARGE (≤ 900px)
+   ============================================================ */
+@media (max-width: 900px) {
+  /* ===== ABOUT DEVPATH ===== */
+  .about-devpath {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-right {
+    justify-content: center;
+  }
+
+  /* ===== ABOUT ME ===== */
+  .about-me-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-me-right {
+    align-items: stretch;
+  }
+
+  /* ===== LIFE ===== */
+  .life-title,
+  .life-carousel {
+    max-width: 100%;
+  }
+}
+
+/* ============================================================
+   MOBILE (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* ===== NAV / LISTAS ===== */
+  .nav-menu li::after {
+    display: none;
+  }
+
+  /* ===== LIFE ===== */
+  .life-slide {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 1.3rem;
+  }
+
+  .life-frame {
+    width: 210px;
+    height: 230px;
+  }
+
+  .life-caption {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .life-highlights {
+    padding-left: 1.1rem;
+  }
+}
+
+/* ============================================================
+   SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+  /* ===== ABOUT DEVPATH ===== */
+  .section-quote {
+    font-size: 0.95rem;
+  }
+
+  /* ===== LIFE ===== */
+  .life-frame {
+    width: 200px;
+    height: 220px;
+  }
+
+  .life-controls {
+    padding: 0.7rem 0.7rem 0.9rem;
+  }
+
+  .life-btn {
+    width: 42px;
+    height: 42px;
+  }
+}
