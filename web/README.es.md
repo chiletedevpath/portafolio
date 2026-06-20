@@ -2,11 +2,11 @@
 
 [English version](README.md)
 
-Sitio web personal de Chilete DevPath. Este repositorio contiene la version publica de mi portafolio, enfocado en presentar identidad profesional, ruta de aprendizaje, proyectos y evolucion tecnica.
+Sitio web personal de Chilete DevPath. Esta carpeta conserva una version base del portafolio, enfocada en presentar identidad profesional, ruta de aprendizaje, proyectos en proceso y evolucion tecnica.
 
 ## Proposito
 
-Servir como vitrina principal de marca personal. A diferencia de `learning-labs` y `academic-projects`, este repositorio no almacena ejercicios ni entregas academicas completas: presenta una experiencia web curada para mostrar quien soy, que estoy construyendo y como evoluciona mi perfil como desarrollador.
+Servir como base visual de la marca personal. A diferencia de `aprendizaje` y `academia`, este repositorio no almacena ejercicios ni entregas academicas completas: prepara una experiencia web curada para mostrar quien soy, que estoy construyendo y como evoluciona mi perfil como desarrollador.
 
 ## Contenido
 
@@ -26,12 +26,12 @@ Servir como vitrina principal de marca personal. A diferencia de `learning-labs`
 
 ## Relacion con Otros Repositorios
 
-- `learning-labs`: evidencia de aprendizaje tecnico progresivo.
-- `academic-projects`: proyectos academicos y entregas formales.
+- `aprendizaje`: evidencia de aprendizaje tecnico progresivo.
+- `academia`: proyectos academicos y entregas formales.
 
 ## Sitio Publicado
 
-https://chiletedevpath.github.io/chilete-devpath/
+Pendiente de actualizar cuando se defina la version publica final.
 
 ## Estado
 

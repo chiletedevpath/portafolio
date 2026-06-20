@@ -2,19 +2,13 @@
 
 Repositorio de presentacion profesional de Chilete DevPath.
 
-Este espacio reune la seleccion de proyectos, evidencias y sitio web personal que serviran como carta de presentacion publica.
+Este espacio conserva la base del sitio web personal y queda preparado para una seleccion futura de proyectos. Aun no representa el portafolio final de Chilete DevPath.
 
 ## Contenido
 
 ```txt
 portafolio/
 |-- web/
-|-- 01-proyectos-web/
-|-- 02-proyectos-backend/
-|-- 03-proyectos-fullstack/
-|-- 04-proyectos-java/
-|-- 05-proyectos-bases-datos/
-|-- docs/
 `-- README.md
 ```
 
@@ -33,18 +27,14 @@ Esa carpeta conserva el contenido del portafolio anterior y queda como base para
 - Presentar proyectos destacados.
 - Conectar el aprendizaje academico con resultados visibles.
 - Preparar una version profesional del perfil Chilete DevPath.
-- Mantener una ruta clara entre proyectos, tecnologias y evidencias.
+- Mantener una ruta clara entre proyectos, tecnologias y evidencias cuando la seleccion este curada.
 
 ## Estado
 
 | Seccion | Estado |
 |---|---|
 | Web personal | Copiada como base inicial |
-| Proyectos web | Pendiente de curar |
-| Proyectos backend | Pendiente de curar |
-| Proyectos fullstack | Pendiente de curar |
-| Proyectos Java | Pendiente de curar |
-| Proyectos de bases de datos | Pendiente de curar |
+| Seleccion de proyectos | Pendiente de curar |
 
 ## Pendientes
 

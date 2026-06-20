@@ -162,7 +162,7 @@ export const translations = {
     "projects.title": "PROYECTOS",
     "projects.intro": "Trabajo real, decisiones técnicas y evolución constante.",
 
-    "projects.main.badge": "Proyecto principal",
+    "projects.main.badge": "Proyecto en proceso",
     "projects.main.imageAlt": "Sistema FerreSys",
 
     "projects.tech.arch": "Arquitectura por capas",
@@ -419,7 +419,7 @@ export const translations = {
     "projects.title": "PROJECTS",
     "projects.intro": "Real work, technical decisions, and constant evolution.",
 
-    "projects.main.badge": "Main project",
+    "projects.main.badge": "Project in progress",
     "projects.main.imageAlt": "FerreSys system",
 
     "projects.tech.arch": "Layered architecture",
