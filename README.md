@@ -1,45 +1,28 @@
 # Portafolio
 
-Repositorio de presentacion profesional de Chilete DevPath.
+Este repositorio prepara la futura selección profesional de proyectos de **Chilete DevPath**.
 
-Este espacio conserva la base del sitio web personal y queda preparado para una seleccion futura de proyectos. Aun no representa el portafolio final de Chilete DevPath.
+Por ahora no funciona como vitrina final. La web oficial del ecosistema está en [chiletedevpath.github.io](https://chiletedevpath.github.io/) y los proyectos académicos organizados viven en [`academia`](https://github.com/chiletedevpath/academia).
 
-## Contenido
+## Para qué sirve este repositorio
 
-```txt
-portafolio/
-|-- web/
-`-- README.md
-```
+- Separar la evidencia académica de la selección profesional.
+- Definir qué proyectos tienen valor para mostrarse como portafolio.
+- Preparar futuras fichas con problema, solución, tecnologías, capturas y aprendizaje.
+- Evitar publicar como portafolio proyectos que todavía necesitan revisión visual, técnica o de alcance.
 
-## Web personal
+## Criterio de selección
 
-La version actual del sitio esta en:
+Un proyecto podrá entrar al portafolio cuando tenga:
 
-```txt
-web/
-```
+- propósito claro;
+- ejecución verificable;
+- README breve y útil;
+- capturas o demo cuando aporten;
+- código ordenado;
+- estado honesto;
+- aprendizaje técnico defendible.
 
-Esa carpeta conserva el contenido del portafolio anterior y queda como base para una futura mejora visual y de contenido.
+## Estado actual
 
-## Proposito
-
-- Presentar proyectos destacados.
-- Conectar el aprendizaje academico con resultados visibles.
-- Preparar una version profesional del perfil Chilete DevPath.
-- Mantener una ruta clara entre proyectos, tecnologias y evidencias cuando la seleccion este curada.
-
-## Estado
-
-| Seccion | Estado |
-|---|---|
-| Web personal | Copiada como base inicial |
-| Seleccion de proyectos | Pendiente de curar |
-
-## Pendientes
-
-- Actualizar la web para reflejar la nueva estructura de repositorios.
-- Seleccionar proyectos principales.
-- Agregar enlaces a GitHub.
-- Agregar capturas o evidencias visuales.
-- Preparar el README final del perfil `chiletedevpath`.
+La selección profesional todavía está en preparación. Primero se está ordenando el ecosistema: aprendizaje, academia, criterios de publicación y web oficial.
