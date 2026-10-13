@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PortfolioCase from '../../../components/PortfolioCase.astro';
+import { portfolioProjects } from '../../../data/portfolio.js';
+export function getStaticPaths() { return portfolioProjects.map(project => ({params:{slug:project.slug},props:{project}})); }
+const { project } = Astro.props;
+---
+<BaseLayout title={`${project.name} | Adrián Pisco`} description={project.en.summary}><PortfolioCase project={project} lang="en" /></BaseLayout>

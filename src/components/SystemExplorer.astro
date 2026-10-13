@@ -1,0 +1,14 @@
+---
+const { lang = 'es' } = Astro.props;
+const en = lang === 'en';
+const t = (es, english) => en ? english : es;
+const steps = [
+  ['01', t('Necesidad', 'Need'), t('Entender antes de construir.', 'Understand before building.'), t('Definir usuarios, alcance y reglas del problema. En ChiSabes, las correcciones deben conservar la historia financiera.', 'Define users, scope and problem rules. In ChiSabes, corrections must preserve financial history.')],
+  ['02', t('Diseño', 'Design'), t('Dar estructura a la solución.', 'Structure the solution.'), t('Separar interfaz, API y datos. Elegir contratos y límites claros para que cada componente tenga una responsabilidad.', 'Separate interface, API and data. Choose clear contracts and boundaries so each component has a responsibility.')],
+  ['03', t('Implementación', 'Implementation'), t('Conectar las piezas.', 'Connect the components.'), t('Construir interfaces, reglas y persistencia. En REMINEXA, conectar los recordatorios con el procesamiento de avisos y el correo.', 'Build interfaces, rules and persistence. In REMINEXA, connect reminders with notification processing and email.')],
+  ['04', t('Verificación', 'Verification'), t('Comprobar el recorrido.', 'Verify the journey.'), t('Probar contratos y comportamiento, revisar la experiencia en navegador y documentar límites operativos.', 'Test contracts and behavior, review the browser experience and document operational limits.')],
+];
+---
+<section class="pf-section system-explorer" aria-labelledby="system-title"><div class="pf-section-heading"><div><span class="pf-kicker">{t('CÓMO PIENSO UN SISTEMA', 'HOW I APPROACH A SYSTEM')}</span><h2 id="system-title">{t('Más allá de la interfaz.', 'Beyond the interface.')}</h2></div><p>{t('Explora el proceso que conecta una necesidad con software verificable.', 'Explore the process connecting a need with verifiable software.')}</p></div>
+<div class="system-console"><div class="console-top"><span aria-hidden="true">● ● ●</span><span>system.design</span><small>{t('EXPLORADOR INTERACTIVO', 'INTERACTIVE EXPLORER')}</small></div><div class="system-tabs" role="tablist" aria-label={t('Etapas de desarrollo', 'Development stages')}>{steps.map(([number, name], i) => <button type="button" id={`stage-tab-${i}`} role="tab" aria-selected={i === 0 ? 'true' : 'false'} aria-controls={`stage-panel-${i}`} tabindex={i === 0 ? 0 : -1} data-stage={i}><span>{number}</span>{name}</button>)}</div>{steps.map(([number, name, title, text], i) => <div id={`stage-panel-${i}`} role="tabpanel" aria-labelledby={`stage-tab-${i}`} tabindex="0" hidden={i !== 0} class="system-panel"><div class="system-node" aria-hidden="true"><span>{number}</span><div></div></div><div><span class="pf-kicker">{name}</span><h3>{title}</h3><p>{text}</p></div></div>)}</div>
+</section>

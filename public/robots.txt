@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://portafolio.chiletedevpath.com/sitemap-index.xml

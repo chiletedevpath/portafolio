@@ -1,0 +1,18 @@
+.pf-shell .pf-contact{align-items:center;gap:65px}
+.pf-shell .pf-contact h2{font-size:clamp(2.6rem,4vw,4rem);margin:16px 0}
+.pf-shell .pf-contact .pf-email{font-size:1.12rem}
+.pf-shell .pf-form{padding:24px;max-width:560px;width:100%;justify-self:end}
+.pf-field-row{display:grid;grid-template-columns:1fr 1.25fr;gap:14px;margin-bottom:15px}
+.pf-field-row label{display:grid;gap:7px;font-size:.8rem;min-width:0}
+.pf-shell .pf-form>label{font-size:.8rem;margin-bottom:7px}
+.pf-shell .pf-form input:not([type=checkbox]),.pf-shell .pf-form textarea{padding:10px 12px;font-size:.9rem}
+.pf-form textarea::placeholder{color:var(--tema-texto-suave);opacity:.8}
+.pf-form>[data-counter]{display:block;text-align:right;font:500 .65rem var(--fuente-mono);color:var(--tema-texto-suave)}
+.pf-shell .pf-form .pf-consent{font-size:.72rem;line-height:1.6;margin-block:13px;gap:8px}
+.pf-shell .pf-form .pf-consent input{accent-color:var(--tema-acento);flex-shrink:0}
+.pf-form .verificacion-etiqueta{display:none}
+.pf-form .verificacion-formulario{margin-top:10px}
+.pf-shell .pf-form .acciones-formulario{margin-top:16px}
+.pf-shell .pf-form .pf-button{padding:11px 22px;font-size:.85rem}
+.pf-shell .pf-form [data-form-status]:empty{display:none}
+@media(max-width:620px){.pf-shell .pf-contact{gap:28px}.pf-shell .pf-form{padding:20px}.pf-field-row{grid-template-columns:1fr;gap:14px}.pf-shell .pf-form .pf-button{width:100%}}

@@ -1,0 +1,45 @@
+---
+const { lang = 'es' } = Astro.props;
+const en = lang === 'en';
+---
+<dialog class="welcome-route" data-welcome-route aria-labelledby="welcome-title" aria-describedby="welcome-description">
+  <div class="welcome-scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 760" fill="none" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="terrain-fill" x1="600" y1="100" x2="600" y2="760" gradientUnits="userSpaceOnUse"><stop stop-color="#243563" stop-opacity=".35"/><stop offset="1" stop-color="#081020" stop-opacity="0"/></linearGradient>
+        <linearGradient id="road-color" x1="120" y1="650" x2="880" y2="260" gradientUnits="userSpaceOnUse"><stop stop-color="#8268ff"/><stop offset=".6" stop-color="#5b99ff"/><stop offset="1" stop-color="#7ff0ed"/></linearGradient>
+        <filter id="road-glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="7"/></filter>
+        <pattern id="terrain-grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M80 0H0V80" stroke="#91b7ff" stroke-opacity=".08"/></pattern>
+      </defs>
+      <path d="M0 395L125 297L210 345L365 160L470 265L620 135L755 290L915 108L1060 220L1200 143V760H0Z" fill="url(#terrain-fill)"/>
+      <g stroke="#5886ce" stroke-opacity=".24" stroke-width="1">
+        <path d="M0 395L125 297L210 345L365 160L470 265L620 135L755 290L915 108L1060 220L1200 143"/>
+        <path d="M0 420L130 334L215 380L370 208L478 310L624 185L760 340L917 164L1060 264L1200 184"/>
+        <path d="M0 455L140 372L223 414L376 257L488 355L632 240L772 387L925 220L1068 310L1200 231"/>
+        <path d="M0 490L152 412L234 450L389 306L502 400L650 290L790 432L939 277L1080 354L1200 276"/>
+        <path d="M0 530L170 455L250 492L410 357L524 448L674 344L815 483L960 332L1094 405L1200 327"/>
+        <path d="M0 574L190 505L275 540L438 411L551 504L704 401L847 536L985 388L1115 456L1200 379"/>
+        <path d="M0 624L220 557L309 590L475 471L584 559L740 462L882 593L1015 448L1140 513L1200 434"/>
+        <path d="M0 680L250 616L344 647L518 535L625 622L780 527L929 655L1056 512L1170 574L1200 494"/>
+        <path d="M0 738L290 681L388 709L565 600L675 684L830 595L978 719L1100 583L1200 639"/>
+        <path d="M125 297L130 334L140 372L152 412L170 455L190 505L220 557L250 616L290 681L340 760"/>
+        <path d="M365 160L370 208L376 257L389 306L410 357L438 411L475 471L518 535L565 600L630 760"/>
+        <path d="M620 135L624 185L632 240L650 290L674 344L704 401L740 462L780 527L830 595L920 760"/>
+        <path d="M915 108L917 164L925 220L939 277L960 332L985 388L1015 448L1056 512L1100 583L1200 720"/>
+      </g>
+      <ellipse cx="885" cy="284" rx="155" ry="62" fill="url(#terrain-grid)" stroke="#5683c7" stroke-opacity=".15"/>
+      <path d="M105 662C275 635 225 505 427 532S730 592 698 451S588 376 745 344S880 329 885 284" stroke="#243b64" stroke-width="16" stroke-linecap="round"/>
+      <path d="M105 662C275 635 225 505 427 532S730 592 698 451S588 376 745 344S880 329 885 284" stroke="#6384cd" stroke-opacity=".35" stroke-width="1" stroke-dasharray="4 10"/>
+      <path class="route-glow" d="M105 662C275 635 225 505 427 532S730 592 698 451S588 376 745 344S880 329 885 284" stroke="url(#road-color)" stroke-width="9" filter="url(#road-glow)" pathLength="1"/>
+      <path class="route-draw" data-welcome-road d="M105 662C275 635 225 505 427 532S730 592 698 451S588 376 745 344S880 329 885 284" stroke="url(#road-color)" stroke-width="3" stroke-linecap="round" pathLength="1"/>
+      <g data-route-traveler transform="translate(105 662)"><circle r="17" fill="#9bb8ff" opacity=".16"/><circle r="7" fill="#e1f5ff"/><circle r="3" fill="#fff"/></g>
+      <g class="welcome-destination"><ellipse cx="885" cy="284" rx="44" ry="17" stroke="#77e5e7" stroke-opacity=".45"/><ellipse cx="885" cy="284" rx="72" ry="27" stroke="#77e5e7" stroke-opacity=".2"/><path d="M885 284V190" stroke="#85eef0" stroke-width="1.5"/><circle cx="885" cy="190" r="5" fill="#9af4f1"/><path d="M897 170H1040V228H897" fill="#0b192c" stroke="#498994" stroke-opacity=".5"/><text x="914" y="195" fill="#efffff" font-family="Arial,sans-serif" font-size="18" font-weight="700">CHILETE</text><text x="914" y="213" fill="#7eaebc" font-family="monospace" font-size="10">CAJAMARCA · PERÚ</text></g>
+      <g fill="#476187"><circle cx="460" cy="128" r="2"/><circle cx="736" cy="89" r="2"/><circle cx="1070" cy="82" r="2"/><circle cx="1020" cy="322" r="2"/><circle cx="341" cy="470" r="2"/></g>
+    </svg>
+  </div>
+  <div class="welcome-inner">
+    <div class="welcome-top"><div class="welcome-brand" aria-hidden="true"><span>AP<span class="welcome-brand-dot">.</span></span><small>ADRIÁN PISCO</small></div><button type="button" data-skip-intro>{en ? 'Enter portfolio' : 'Entrar al portafolio'} <span aria-hidden="true">↗</span></button></div>
+    <div class="welcome-heading"><span class="welcome-eyebrow"><i aria-hidden="true"></i>{en ? 'WELCOME TO MY PORTFOLIO' : 'BIENVENIDO A MI PORTAFOLIO'}</span><h2 id="welcome-title">{en ? 'Every journey' : 'Todo camino'}<br />{en ? 'has an' : 'tiene un'} <em>{en ? 'origin.' : 'origen.'}</em></h2><p id="welcome-description">{en ? 'Mine starts in Chilete.' : 'El mío empieza en Chilete.'}<br /><span>{en ? 'From here, I build software and new possibilities.' : 'Desde aquí, construyo software y nuevas posibilidades.'}</span></p><div class="welcome-signature"><span aria-hidden="true">&lt;/&gt;</span><div><strong>Adrián Pisco</strong><small>{en ? 'Developer · Systems Engineering student' : 'Desarrollador · Estudiante de Ingeniería de Sistemas'}</small></div></div></div>
+    <div class="welcome-bottom"><div class="welcome-stage-list" aria-hidden="true"><span data-intro-stage="0" class="is-active">01 / {en ? 'ORIGIN' : 'ORIGEN'}</span><span data-intro-stage="1">02 / {en ? 'JOURNEY' : 'CAMINO'}</span><span data-intro-stage="2">03 / {en ? 'WELCOME' : 'BIENVENIDA'}</span></div><div class="welcome-progress" aria-hidden="true"><span></span></div><div class="welcome-status-row"><span data-intro-status role="status">{en ? 'Beginning the journey…' : 'Iniciando el recorrido…'}</span><span>CHILETE / PERÚ <b data-intro-percent aria-hidden="true">00%</b></span></div></div>
+  </div>
+</dialog>

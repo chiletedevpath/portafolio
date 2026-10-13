@@ -1,0 +1,26 @@
+---
+import ContactSecurityFields from './ContactSecurityFields.astro';
+import { contactConfig } from '../data/contact.js';
+import { site } from '../data/site.js';
+import { socialLinks } from '../data/contactos.js';
+const { lang = 'es' } = Astro.props;
+const en = lang === 'en';
+const t = (es, english) => en ? english : es;
+---
+<section id="contacto" class="pf-section pf-contact" aria-labelledby="contact-title">
+  <div><span class="pf-kicker">04 / {t('CONTACTO', 'CONTACT')}</span><h2 id="contact-title">{t('Hablemos.', 'Let’s talk.')}</h2><p>{t('Proyectos, oportunidades o colaboración.', 'Projects, opportunities or collaboration.')}</p><a class="pf-email" href={`mailto:${site.email}`}>{site.email}</a><div class="pf-actions">{socialLinks.filter(link => ['GitHub', 'LinkedIn'].includes(link.name)).map(link => <a class="pf-button pf-secondary" href={link.href} target="_blank" rel="noopener noreferrer">{link.name} ↗</a>)}</div></div>
+  <form class="pf-form" action={contactConfig.endpoint} method="post" data-contact-form data-context="home" data-lang={lang}>
+    <div class="pf-field-row">
+      <label for="pf-nombre">{t('Nombre', 'Name')}<input id="pf-nombre" name="nombre" autocomplete="name" required minlength="2" maxlength="80" /></label>
+      <label for="pf-correo">{t('Correo', 'Email')}<input id="pf-correo" name="correo" type="email" autocomplete="email" required maxlength="120" /></label>
+    </div>
+    <input type="hidden" name="tipo" value="Portafolio profesional" />
+    <input type="hidden" name="asunto" value={t('Contacto desde el portafolio', 'Portfolio inquiry')} />
+    <label for="pf-mensaje">{t('¿Qué tienes en mente?', 'What do you have in mind?')}<textarea id="pf-mensaje" name="mensaje" rows="3" required minlength="20" maxlength="700" data-countable placeholder={t('Cuéntame brevemente sobre tu propuesta…', 'Tell me briefly about your idea…')}></textarea></label>
+    <small data-counter>0/700</small>
+    <label class="pf-consent"><input type="checkbox" name="confirmacion" required /><span>{t('Acepto el uso de mis datos para responder esta consulta.', 'I agree to the use of my information to answer this inquiry.')} <a href={`https://chiletedevpath.com${en ? '/en' : ''}/politicas/publicacion-segura/`}>{t('Ver criterios', 'Read criteria')}</a>.</span></label>
+    <ContactSecurityFields lang={lang} />
+    <div class="acciones-formulario"><button class="pf-button" type="submit">{t('Enviar', 'Send')} ↗</button><p data-form-status role="status" aria-live="polite"></p></div>
+    <noscript><p>{t('Para usar el formulario activa JavaScript, o escribe al correo indicado.', 'Enable JavaScript to use this form, or email me directly.')}</p></noscript>
+  </form>
+</section>
