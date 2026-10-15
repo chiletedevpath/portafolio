@@ -4,6 +4,8 @@ Sitio independiente de la web de aprendizaje Chilete DevPath. Presenta proyectos
 
 Dominio previsto: `https://portafolio.chiletedevpath.com`. El dominio y la publicación están pendientes; el traslado se entrega localmente.
 
+La [ruta de cierre](docs/ruta-de-cierre.md) organiza la revisión de proyectos, evidencia, actualización del CV y publicación. El diseño actual se conserva mientras se completa esa ruta.
+
 ## Experiencia
 
 - Identidad tecnológica propia, temas oscuro y claro y diseño responsive.
