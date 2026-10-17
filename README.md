@@ -2,7 +2,7 @@
 
 Sitio independiente de la web de aprendizaje Chilete DevPath. Presenta proyectos personales, perfil profesional, CV público en español e inglés y contacto.
 
-Dominio previsto: `https://portafolio.chiletedevpath.com`. El dominio y la publicación están pendientes; el traslado se entrega localmente.
+Dominio: `https://portafolio.chiletedevpath.com`. Alojamiento independiente en GitHub Pages; DNS administrado en Cloudflare.
 
 La [ruta de cierre](docs/ruta-de-cierre.md) organiza la revisión de proyectos, evidencia, actualización del CV y publicación. El diseño actual se conserva mientras se completa esa ruta.
 
@@ -30,13 +30,11 @@ npm run dev -- --host 127.0.0.1 --port 4395
 
 `npm run build` genera `dist/`. `npm test` valida la experiencia después del build.
 
-## Publicación pendiente
+## Publicación
 
-1. Conectar este repositorio a alojamiento estático independiente, con build `npm run build` y salida `dist`.
-2. Añadir `portafolio.chiletedevpath.com` como dominio personalizado y configurar su DNS. Mantener el dominio raíz para la web principal.
-3. Desplegar la configuración del Worker que admite el nuevo origen y hostname. Verificar el hostname en Turnstile.
-4. Publicar los enlaces y redirecciones de la web principal cuando el subdominio esté operativo.
-5. Validar HTTPS, idiomas, descargas y entrega de un mensaje autorizado.
+Los cambios en `main` ejecutan `.github/workflows/deploy.yml`: instalación, build, pruebas de navegador y despliegue de `dist/`. El dominio personalizado está asociado en GitHub Pages y registrado en `public/CNAME`. En Cloudflare, el CNAME `portafolio` apunta a `chiletedevpath.github.io`, con DNS only y TTL automático. La web principal conserva su alojamiento y dominio.
+
+El Worker de contacto admite el origen y hostname del portafolio. El widget Turnstile existente permite `chiletedevpath.com` y sus subdominios. La prueba de entrega real de un mensaje requiere un envío autorizado; las capturas y los documentos de sustento pendientes pueden incorporarse después.
 
 Las pruebas de contacto usan respuestas simuladas y no verifican entrega externa. Las fichas describen documentación local, no monitorización en vivo.
 
