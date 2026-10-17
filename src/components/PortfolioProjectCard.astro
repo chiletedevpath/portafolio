@@ -1,0 +1,22 @@
+---
+const { project, lang = 'es', flagship = false } = Astro.props;
+const en = lang === 'en';
+const t = (es, english) => en ? english : es;
+const copy = project[lang];
+const root = en ? '/en' : '';
+---
+<article data-project-kind={flagship ? 'platform' : 'systems'} class:list={['pf-project', `pf-${project.accent}`, { 'pf-flagship': flagship }]}>
+  <a class="pf-project-art" href={`${root}/proyectos/${project.slug}/`} aria-label={`${t('Ver proyecto', 'View project')}: ${project.name}`}>
+    <span class="pf-project-number">{flagship ? t('PROYECTO INSIGNIA', 'FLAGSHIP PROJECT') : `/${project.number}`}</span>
+    <img src={project.mark} width="120" height="120" alt="" loading="lazy" />
+    {flagship ? <div class="pf-ecosystem-nodes" aria-hidden="true"><span>{t('Aprendizaje', 'Learning')}</span><span>{t('Recursos', 'Resources')}</span><span>{t('Proyectos', 'Projects')}</span></div> : <div class="pf-art-flow"><span>{project.stack[0]}</span><i aria-hidden="true">→</i><span>{project.stack[2]}</span></div>}
+    <span class="pf-art-caption">{flagship ? t('Una identidad que conecta mi trabajo', 'An identity connecting my work') : t('Identidad y arquitectura', 'Identity and architecture')}</span>
+  </a>
+  <div class="pf-project-copy">
+    <div class="pf-meta"><span>{copy.category}</span><span class="pf-status">{copy.status}</span></div>
+    <h3><a href={`${root}/proyectos/${project.slug}/`}>{flagship ? 'Chilete DevPath' : project.name}</a></h3>
+    <p>{flagship ? t('Mi proyecto más personal. Una plataforma donde organizo lo que aprendo, comparto recursos y conecto las soluciones que construyo bajo una identidad propia.', 'My most personal project. A platform where I organize what I learn, share resources and connect the solutions I build through my own identity.') : copy.summary}</p>
+    <ul class="pf-tags" aria-label={t('Tecnologías', 'Technologies')}>{project.stack.slice(0,4).map(tech => <li>{tech}</li>)}</ul>
+    <a class="pf-case-link" href={`${root}/proyectos/${project.slug}/`}>{flagship ? t('Conocer la historia y su construcción', 'Explore the story and how I built it') : t('Explorar caso', 'Explore case')} <span aria-hidden="true">↗</span></a>
+  </div>
+</article>

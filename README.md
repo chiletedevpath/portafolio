@@ -8,6 +8,8 @@ La [ruta de cierre](docs/ruta-de-cierre.md) organiza la revisión de proyectos, 
 
 ## Experiencia
 
+La portada conserva su diseño y da paso al trabajo organizado en dos grupos: Chilete DevPath como proyecto insignia y ChiSabes y REMINEXA como sistemas aplicados. Después aparecen el enfoque de desarrollo, el perfil, el CV y el contacto. Cada ficha explica problema, aporte propio, solución, decisiones técnicas, resultado y evidencia, con el alcance y la evolución del proyecto diferenciados.
+
 - Identidad tecnológica propia, temas oscuro y claro y diseño responsive.
 - Bienvenida con ruta ilustrada hacia Chilete, omisión por botón o Escape y respeto a movimiento reducido. Una vez por sesión.
 - ChiSabes, REMINEXA y Chilete DevPath Web con páginas bilingües y alcance documentado.
@@ -40,4 +42,10 @@ Las pruebas de contacto usan respuestas simuladas y no verifican entrega externa
 
 ## Mantenimiento
 
-Contenido: `src/data/portfolio.js`. Identidad: `src/styles/technology.css`. CV: `scripts/build-portfolio-cv.py` con Python y ReportLab. Revisar y renderizar ambos PDF después de cambiarlos. La ruta de bienvenida es simbólica, no un mapa geográfico.
+### Álbum de capturas y sustento
+
+Cada ficha presenta un álbum con imagen protagonista, miniaturas, flechas, teclado, deslizamiento móvil y ampliación. No hay reproducción automática. Las transiciones respetan movimiento reducido.
+
+Configurar las capturas en `src/data/projectMedia.js`, en `images`: `src` es la URL de la imagen y `alt` / `caption` sus textos bilingües. Guardar archivos reales en `public/proyectos/<slug>/`, por ejemplo `/proyectos/chisabes/vista-general.webp`. Se pueden añadir más imágenes. Los espacios sin fuente se identifican como pendientes y no permiten ampliación.
+
+`supporting[].href` admite documentos o enlaces públicos de arquitectura, decisiones y pruebas. Usar capturas sanitizadas, sin datos personales, tokens o información privada.

@@ -1,0 +1,15 @@
+---
+import { portfolioProjects } from '../data/portfolio.js';
+import PortfolioProjectCard from './PortfolioProjectCard.astro';
+const { lang = 'es' } = Astro.props;
+const en = lang === 'en';
+const t = (es, english) => en ? english : es;
+const flagship = portfolioProjects.find(project => project.slug === 'chiletedevpath-web');
+const systems = portfolioProjects.filter(project => project.slug !== 'chiletedevpath-web');
+---
+<section id="trabajo" class="pf-section" aria-labelledby="work-title">
+  <div class="pf-section-heading"><div><span class="pf-kicker">01 / {t('MI TRABAJO', 'MY WORK')}</span><h2 id="work-title">{t('Una identidad propia. Sistemas que funcionan.', 'My own identity. Systems that work.')}</h2></div><p>{t('Chilete DevPath es el proyecto que me representa. ChiSabes y REMINEXA muestran cómo convierto necesidades concretas en software.', 'Chilete DevPath is the project that represents me. ChiSabes and REMINEXA show how I turn concrete needs into software.')}</p></div>
+  <div class="pf-filter-bar" aria-label={t('Filtrar proyectos', 'Filter projects')}><button type="button" data-project-filter="all" aria-pressed="true">{t('Todos', 'All')}</button><button type="button" data-project-filter="platform" aria-pressed="false">Chilete DevPath</button><button type="button" data-project-filter="systems" aria-pressed="false">{t('Sistemas aplicados', 'Applied systems')}</button><small data-project-count role="status">3 {t('proyectos', 'projects')}</small></div>
+  <div id="chiletedevpath" class="pf-project-group" data-project-group aria-labelledby="flagship-title"><div class="pf-group-heading"><h3 id="flagship-title">{t('Mi proyecto insignia', 'My flagship project')}</h3><span>{t('IDENTIDAD / PLATAFORMA / CONTENIDO', 'IDENTITY / PLATFORM / CONTENT')}</span></div><PortfolioProjectCard project={flagship} lang={lang} flagship={true} /></div>
+  <div class="pf-project-group" data-project-group aria-labelledby="systems-title"><div class="pf-group-heading"><h3 id="systems-title">{t('Sistemas aplicados', 'Applied systems')}</h3><span>{t('DESARROLLO FULL STACK', 'FULL STACK DEVELOPMENT')}</span></div><div class="pf-projects">{systems.map(project => <PortfolioProjectCard project={project} lang={lang} />)}</div></div>
+</section>

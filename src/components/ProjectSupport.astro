@@ -1,0 +1,5 @@
+---
+const { items, lang = 'es' } = Astro.props;
+const en = lang === 'en';
+---
+<div class="pf-support" aria-label={en ? 'Supporting project material' : 'Material de sustento del proyecto'}>{items.map((item,index) => <article><span class="pf-kicker">0{index+1}</span><h3>{item.title[lang]}</h3><p>{item.description[lang]}</p>{item.href ? <a href={item.href} target="_blank" rel="noopener noreferrer">{en ? 'Open supporting material' : 'Abrir sustento'} ↗</a> : <small data-media-placeholder="support">{en ? 'Material to be added' : 'Material por incorporar'}</small>}</article>)}</div>

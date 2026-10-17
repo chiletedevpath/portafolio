@@ -1,86 +1,329 @@
 export const portfolioProjects = [
   {
-    slug: 'chisabes', name: 'ChiSabes', number: '01', accent: 'lime', mark: '/assets/portfolio/chisabes.webp',
-    stack: ['Next.js', 'TypeScript', 'Spring Boot', 'PostgreSQL', 'Playwright'],
-    architecture: ['Next.js · PWA', 'REST · Spring Boot', 'PostgreSQL · Flyway'],
-    url: 'https://chisabes.chiletedevpath.com',
-    es: {
-      category: 'Finanzas personales', status: 'MVP funcional',
-      summary: 'Una visión ordenada de cuentas, movimientos y compromisos financieros, con trazabilidad de cada cambio.',
-      problem: 'Registrar movimientos no basta para entender las finanzas. Las transferencias, deudas y correcciones necesitan reglas consistentes para conservar saldos e historia.',
-      role: 'Desarrollo del frontend y la API, modelado financiero, autenticación, migraciones y documentación de operación del proyecto personal.',
-      features: [['Movimientos y cuentas', 'Ingresos, gastos, transferencias y saldos derivados de partidas balanceadas.'], ['Planificación', 'Presupuestos mensuales, metas y seguimiento de obligaciones.'], ['Trazabilidad', 'Correcciones por reversión y archivo de entidades para conservar la historia.']],
-      decisions: [['PostgreSQL como fuente operativa', 'Las reglas financieras se aplican en la API con transacciones; la interfaz consume los contratos REST.'], ['Sesiones revocables', 'Access token en memoria y refresh token rotatorio en cookie HttpOnly.'], ['PWA sin datos financieros offline', 'La experiencia instalable no guarda información financiera en el almacenamiento del navegador.']],
-      evidence: 'El repositorio incluye pruebas de backend, frontend e integración con PostgreSQL y recorridos Playwright. Las recurrencias admiten pausa y reactivación sin perder su próxima ocurrencia. La documentación registra un despliegue con Vercel, Render y Neon.',
-      limits: 'La confirmación del respaldo desatendido permanece pendiente antes de declarar v1.0. El acceso a la aplicación es privado y no existe una cuenta pública de demostración.',
-      next: 'Confirmar el respaldo programado y preparar evidencia visual con datos ficticios sin exponer la cuenta del propietario.',
+    "slug": "chisabes",
+    "name": "ChiSabes",
+    "number": "01",
+    "accent": "lime",
+    "mark": "/assets/portfolio/chisabes.webp",
+    "stack": [
+      "Next.js",
+      "TypeScript",
+      "Spring Boot",
+      "PostgreSQL",
+      "Playwright"
+    ],
+    "architecture": [
+      "Next.js · PWA",
+      "REST · Spring Boot",
+      "PostgreSQL · Flyway"
+    ],
+    "url": "https://chisabes.chiletedevpath.com",
+    "es": {
+      "category": "Finanzas personales",
+      "status": "MVP funcional",
+      "summary": "Una visión ordenada de cuentas, movimientos y compromisos financieros, con trazabilidad de cada cambio.",
+      "problem": "Registrar movimientos no basta para entender las finanzas. Las transferencias, deudas y correcciones necesitan reglas consistentes para conservar saldos e historia.",
+      "role": "Desarrollo del frontend y la API, modelado financiero, autenticación, migraciones y documentación de operación del proyecto personal.",
+      "features": [
+        [
+          "Movimientos y cuentas",
+          "Ingresos, gastos, transferencias y saldos derivados de partidas balanceadas."
+        ],
+        [
+          "Planificación",
+          "Presupuestos mensuales, metas y seguimiento de obligaciones."
+        ],
+        [
+          "Trazabilidad",
+          "Correcciones por reversión y archivo de entidades para conservar la historia."
+        ]
+      ],
+      "decisions": [
+        [
+          "PostgreSQL como fuente operativa",
+          "Las reglas financieras se aplican en la API con transacciones; la interfaz consume los contratos REST."
+        ],
+        [
+          "Sesiones revocables",
+          "Access token en memoria y refresh token rotatorio en cookie HttpOnly."
+        ],
+        [
+          "PWA sin datos financieros offline",
+          "La experiencia instalable no guarda información financiera en el almacenamiento del navegador."
+        ]
+      ],
+      "evidence": "El repositorio incluye pruebas de backend, frontend e integración con PostgreSQL y recorridos Playwright. Las recurrencias admiten pausa y reactivación sin perder su próxima ocurrencia. La documentación registra un despliegue con Vercel, Render y Neon.",
+      "limits": "La confirmación del respaldo desatendido permanece pendiente antes de declarar v1.0. El acceso a la aplicación es privado y no existe una cuenta pública de demostración.",
+      "next": "Confirmar el respaldo programado y preparar evidencia visual con datos ficticios sin exponer la cuenta del propietario.",
+      "outcomes": [
+        "Centralizar cuentas, movimientos y compromisos con reglas financieras consistentes.",
+        "Conservar trazabilidad al corregir operaciones y al pausar o reactivar recurrencias.",
+        "Conectar una PWA con autenticación, API transaccional y persistencia PostgreSQL."
+      ],
+      "access": "Aplicación de acceso privado. El enlace abre el inicio de sesión del propietario."
     },
-    en: {
-      category: 'Personal finance', status: 'Functional MVP',
-      summary: 'An organized view of accounts, transactions and financial commitments, with traceable changes.',
-      problem: 'Recording transactions is not enough to understand finances. Transfers, debts and corrections need consistent rules to preserve balances and history.',
-      role: 'Frontend and API development, financial modeling, authentication, migrations and operational documentation for this personal project.',
-      features: [['Transactions and accounts', 'Income, expenses, transfers and balances derived from balanced entries.'], ['Planning', 'Monthly budgets, goals and obligation tracking.'], ['Traceability', 'Corrections through reversals and entity archiving to preserve history.']],
-      decisions: [['PostgreSQL as the operational source', 'The API applies financial rules through transactions; the interface consumes REST contracts.'], ['Revocable sessions', 'In-memory access tokens and rotating refresh tokens in HttpOnly cookies.'], ['PWA without offline financial storage', 'The installable experience does not save financial information in browser storage.']],
-      evidence: 'The repository includes backend, frontend and PostgreSQL integration tests and Playwright journeys. Recurrences can be paused and resumed without losing their next occurrence. Documentation records deployment using Vercel, Render and Neon.',
-      limits: 'Unattended backup confirmation remains pending before v1.0. Application access is private and there is no public demo account.',
-      next: 'Confirm the scheduled backup and prepare visual evidence with fictional data without exposing the owner account.',
-    },
+    "en": {
+      "category": "Personal finance",
+      "status": "Functional MVP",
+      "summary": "An organized view of accounts, transactions and financial commitments, with traceable changes.",
+      "problem": "Recording transactions is not enough to understand finances. Transfers, debts and corrections need consistent rules to preserve balances and history.",
+      "role": "Frontend and API development, financial modeling, authentication, migrations and operational documentation for this personal project.",
+      "features": [
+        [
+          "Transactions and accounts",
+          "Income, expenses, transfers and balances derived from balanced entries."
+        ],
+        [
+          "Planning",
+          "Monthly budgets, goals and obligation tracking."
+        ],
+        [
+          "Traceability",
+          "Corrections through reversals and entity archiving to preserve history."
+        ]
+      ],
+      "decisions": [
+        [
+          "PostgreSQL as the operational source",
+          "The API applies financial rules through transactions; the interface consumes REST contracts."
+        ],
+        [
+          "Revocable sessions",
+          "In-memory access tokens and rotating refresh tokens in HttpOnly cookies."
+        ],
+        [
+          "PWA without offline financial storage",
+          "The installable experience does not save financial information in browser storage."
+        ]
+      ],
+      "evidence": "The repository includes backend, frontend and PostgreSQL integration tests and Playwright journeys. Recurrences can be paused and resumed without losing their next occurrence. Documentation records deployment using Vercel, Render and Neon.",
+      "limits": "Unattended backup confirmation remains pending before v1.0. Application access is private and there is no public demo account.",
+      "next": "Confirm the scheduled backup and prepare visual evidence with fictional data without exposing the owner account.",
+      "outcomes": [
+        "Bring accounts, transactions and commitments together under consistent financial rules.",
+        "Preserve traceability when correcting transactions and pausing or resuming recurrences.",
+        "Connect a PWA to authentication, a transactional API and PostgreSQL persistence."
+      ],
+      "access": "Private application. The link opens the owner sign-in screen."
+    }
   },
   {
-    slug: 'reminexa', name: 'REMINEXA', number: '02', accent: 'aqua', mark: '/assets/portfolio/reminexa.webp',
-    stack: ['React', 'Vite', 'Spring Boot', 'PostgreSQL', 'Cloudflare', 'Resend'],
-    architecture: ['React · SPA', 'Spring Boot · API', 'PostgreSQL · Neon', 'Cloudflare → Resend'],
-    url: 'https://reminexa.chiletedevpath.com',
-    es: {
-      category: 'Organización personal', status: 'Piloto V1',
-      summary: 'Recordatorios personales con programación de avisos, historial y entrega por correo.',
-      problem: 'Las tareas, vencimientos y trámites se dispersan entre notas y calendarios. Un recordatorio necesita conservar contexto y registrar qué ocurrió con su aviso.',
-      role: 'Desarrollo de la SPA y la API, modelo de recordatorios, procesamiento de avisos, integración de correo e identidad visual.',
-      features: [['Recordatorios', 'Organización de compromisos personales y sus fechas.'], ['Avisos por correo', 'Procesamiento diario e integración HTTPS con Resend.'], ['Historial y adjuntos', 'Contexto del recordatorio, seguimiento y archivos privados.']],
-      decisions: [['Procesamiento idempotente', 'El diseño del procesamiento evita repetir trabajo al volver a ejecutar el proceso.'], ['Scheduler externo', 'Un Worker de Cloudflare ejecuta el proceso diario sin mantener permanentemente despierto el servicio.'], ['Archivos privados', 'Los adjuntos tienen controles de acceso, validación de tipo y límite de tamaño.']],
-      evidence: 'El workflow Verify REMINEXA configura build y pruebas de frontend y backend. El repositorio conserva la configuración del Worker y una guía de operación y cierre de V1.',
-      limits: 'V1 programa los avisos a las 09:00 America/Lima mediante un proceso diario. No ofrece precisión por minuto ni SLA; la entrega depende de los servicios externos. La ficha describe el diseño documentado, no una monitorización en vivo.',
-      next: 'Conservar evidencia del recorrido creación, correo e historial, y comprobar restauración de respaldos.',
+    "slug": "reminexa",
+    "name": "REMINEXA",
+    "number": "02",
+    "accent": "aqua",
+    "mark": "/assets/portfolio/reminexa.webp",
+    "stack": [
+      "React",
+      "Vite",
+      "Spring Boot",
+      "PostgreSQL",
+      "Cloudflare",
+      "Resend"
+    ],
+    "architecture": [
+      "React · SPA",
+      "Spring Boot · API",
+      "PostgreSQL · Neon",
+      "Cloudflare → Resend"
+    ],
+    "url": "https://reminexa.chiletedevpath.com",
+    "es": {
+      "category": "Organización personal",
+      "status": "Piloto V1",
+      "summary": "Recordatorios personales con programación de avisos, historial y entrega por correo.",
+      "problem": "Las tareas, vencimientos y trámites se dispersan entre notas y calendarios. Un recordatorio necesita conservar contexto y registrar qué ocurrió con su aviso.",
+      "role": "Desarrollo de la SPA y la API, modelo de recordatorios, procesamiento de avisos, integración de correo e identidad visual.",
+      "features": [
+        [
+          "Recordatorios",
+          "Organización de compromisos personales y sus fechas."
+        ],
+        [
+          "Avisos por correo",
+          "Procesamiento diario e integración HTTPS con Resend."
+        ],
+        [
+          "Historial y adjuntos",
+          "Contexto del recordatorio, seguimiento y archivos privados."
+        ]
+      ],
+      "decisions": [
+        [
+          "Procesamiento idempotente",
+          "El diseño del procesamiento evita repetir trabajo al volver a ejecutar el proceso."
+        ],
+        [
+          "Scheduler externo",
+          "Un Worker de Cloudflare ejecuta el proceso diario sin mantener permanentemente despierto el servicio."
+        ],
+        [
+          "Archivos privados",
+          "Los adjuntos tienen controles de acceso, validación de tipo y límite de tamaño."
+        ]
+      ],
+      "evidence": "El workflow Verify REMINEXA configura build y pruebas de frontend y backend. El repositorio conserva la configuración del Worker y una guía de operación y cierre de V1.",
+      "limits": "V1 programa los avisos a las 09:00 America/Lima mediante un proceso diario. No ofrece precisión por minuto ni SLA; la entrega depende de los servicios externos. La ficha describe el diseño documentado, no una monitorización en vivo.",
+      "next": "Conservar evidencia del recorrido creación, correo e historial, y comprobar restauración de respaldos.",
+      "outcomes": [
+        "Reunir compromisos, contexto y archivos en recordatorios personales.",
+        "Conectar la programación diaria con el procesamiento de avisos y la integración de correo.",
+        "Consultar el historial de intentos y gestionar recordatorios sin perder su contexto."
+      ],
+      "access": "El acceso requiere una cuenta verificada y una invitación. El sitio abre la pantalla de ingreso."
     },
-    en: {
-      category: 'Personal organization', status: 'V1 pilot',
-      summary: 'Personal reminders with scheduled notifications, history and email delivery.',
-      problem: 'Tasks, deadlines and administrative commitments become scattered across notes and calendars. A reminder needs context and a record of what happened to its notification.',
-      role: 'SPA and API development, reminder modeling, notification processing, email integration and visual identity.',
-      features: [['Reminders', 'Organization of personal commitments and their dates.'], ['Email notifications', 'Daily processing and HTTPS integration with Resend.'], ['History and attachments', 'Reminder context, tracking and private files.']],
-      decisions: [['Idempotent processing', 'Processing is designed to avoid repeating work when the job runs again.'], ['External scheduler', 'A Cloudflare Worker runs the daily process without keeping the service permanently awake.'], ['Private files', 'Attachments have access controls, type validation and size limits.']],
-      evidence: 'The Verify REMINEXA workflow configures frontend and backend builds and tests. The repository includes Worker configuration and V1 operational guidance.',
-      limits: 'V1 schedules notifications for 09:00 America/Lima through a daily process. There is no minute-level precision or SLA; delivery depends on external services. This case describes the documented design, not live monitoring.',
-      next: 'Retain evidence of creation, email and history journeys and verify backup restoration.',
-    },
+    "en": {
+      "category": "Personal organization",
+      "status": "V1 pilot",
+      "summary": "Personal reminders with scheduled notifications, history and email delivery.",
+      "problem": "Tasks, deadlines and administrative commitments become scattered across notes and calendars. A reminder needs context and a record of what happened to its notification.",
+      "role": "SPA and API development, reminder modeling, notification processing, email integration and visual identity.",
+      "features": [
+        [
+          "Reminders",
+          "Organization of personal commitments and their dates."
+        ],
+        [
+          "Email notifications",
+          "Daily processing and HTTPS integration with Resend."
+        ],
+        [
+          "History and attachments",
+          "Reminder context, tracking and private files."
+        ]
+      ],
+      "decisions": [
+        [
+          "Idempotent processing",
+          "Processing is designed to avoid repeating work when the job runs again."
+        ],
+        [
+          "External scheduler",
+          "A Cloudflare Worker runs the daily process without keeping the service permanently awake."
+        ],
+        [
+          "Private files",
+          "Attachments have access controls, type validation and size limits."
+        ]
+      ],
+      "evidence": "The Verify REMINEXA workflow configures frontend and backend builds and tests. The repository includes Worker configuration and V1 operational guidance.",
+      "limits": "V1 schedules notifications for 09:00 America/Lima through a daily process. There is no minute-level precision or SLA; delivery depends on external services. This case describes the documented design, not live monitoring.",
+      "next": "Retain evidence of creation, email and history journeys and verify backup restoration.",
+      "outcomes": [
+        "Bring commitments, context and files together in personal reminders.",
+        "Connect daily scheduling to notification processing and email integration.",
+        "Review attempt history and manage reminders while preserving their context."
+      ],
+      "access": "Access requires a verified account and an invitation. The website opens the sign-in screen."
+    }
   },
   {
-    slug: 'chiletedevpath-web', name: 'Chilete DevPath Web', number: '03', accent: 'coral', mark: '/assets/img/marca-simbolo-nav.png',
-    stack: ['Astro', 'JavaScript', 'CSS', 'Cloudflare', 'Playwright'],
-    architecture: ['Astro · sitio estático', 'GitHub Pages', 'Worker · contacto'],
-    url: 'https://chiletedevpath.com', repository: 'https://github.com/chiletedevpath/chiletedevpath.web',
-    es: {
-      category: 'Plataforma y presencia profesional', status: 'Proyecto en evolución',
-      summary: 'Una plataforma propia para conectar aprendizaje, recursos y proyectos con una identidad coherente.',
-      problem: 'Los repositorios aislados no explican una trayectoria. El trabajo técnico necesita contexto, navegación y criterios claros para que otras personas puedan entenderlo.',
-      role: 'Diseño y desarrollo de la web, estructura del contenido, rutas bilingües, integración de contacto y mantenimiento del ecosistema.',
-      features: [['Contenido conectado', 'Rutas de aprendizaje, recursos y proyectos con navegación común.'], ['Experiencia bilingüe', 'Páginas en español e inglés y preferencias de tema.'], ['Contacto y publicación', 'Sitio estático con un Worker para procesar mensajes y verificación humana.']],
-      decisions: [['Astro y generación estática', 'Contenido generado durante el build y JavaScript para las interacciones que lo necesitan.'], ['Identidad compartida', 'Tipografía, colores y componentes comunes mantienen coherencia entre secciones.'], ['Contacto separado', 'El Worker conserva las credenciales fuera del frontend y valida las solicitudes.']],
-      evidence: 'El proyecto incluye validación de datos, controles de módulos, build estático y pruebas de navegador. El portafolio se integra como una sección propia del sitio.',
-      limits: 'La plataforma continúa evolucionando. Los recursos de aprendizaje y los proyectos profesionales tienen objetivos distintos y se presentan en secciones separadas.',
-      next: 'Mantener los casos profesionales actualizados con evidencia visual y ampliar los recursos de aprendizaje.',
+    "slug": "chiletedevpath-web",
+    "name": "Chilete DevPath",
+    "number": "03",
+    "accent": "coral",
+    "mark": "/assets/img/marca-simbolo-nav.png",
+    "stack": [
+      "Astro",
+      "JavaScript",
+      "CSS",
+      "Cloudflare",
+      "Playwright"
+    ],
+    "architecture": [
+      "Astro · sitio estático",
+      "GitHub Pages",
+      "Worker · contacto"
+    ],
+    "url": "https://chiletedevpath.com",
+    "repository": "https://github.com/chiletedevpath/chiletedevpath.web",
+    "es": {
+      "category": "Mi ecosistema personal",
+      "status": "Proyecto en evolución",
+      "summary": "Una plataforma propia para conectar aprendizaje, recursos y proyectos con una identidad coherente.",
+      "problem": "Los repositorios aislados no explican una trayectoria. El trabajo técnico necesita contexto, navegación y criterios claros para que otras personas puedan entenderlo.",
+      "role": "Creación de la identidad Chilete DevPath, diseño y desarrollo de la plataforma, organización de rutas y recursos, publicación y mantenimiento. El portafolio profesional tiene su propio sitio y se conecta con este ecosistema.",
+      "features": [
+        [
+          "Contenido conectado",
+          "Rutas de aprendizaje, recursos y proyectos con navegación común."
+        ],
+        [
+          "Experiencia bilingüe",
+          "Páginas en español e inglés y preferencias de tema."
+        ],
+        [
+          "Contacto y publicación",
+          "Sitio estático con un Worker para procesar mensajes y verificación humana."
+        ]
+      ],
+      "decisions": [
+        [
+          "Astro y generación estática",
+          "Contenido generado durante el build y JavaScript para las interacciones que lo necesitan."
+        ],
+        [
+          "Identidad compartida",
+          "Tipografía, colores y componentes comunes mantienen coherencia entre secciones."
+        ],
+        [
+          "Contacto separado",
+          "El Worker conserva las credenciales fuera del frontend y valida las solicitudes."
+        ]
+      ],
+      "evidence": "La plataforma incluye validación de datos, controles de módulos, build estático y pruebas de navegador. Sus rutas y recursos se pueden explorar públicamente; el portafolio profesional se mantiene como un sitio independiente.",
+      "limits": "La plataforma continúa evolucionando. Los recursos de aprendizaje y los proyectos profesionales tienen objetivos distintos y se presentan en secciones separadas.",
+      "next": "Mantener los casos profesionales actualizados con evidencia visual y ampliar los recursos de aprendizaje.",
+      "outcomes": [
+        "Dar una identidad propia y una entrada común a mi trabajo y aprendizaje.",
+        "Organizar rutas, recursos y evidencia para que otras personas puedan explorarlos con contexto.",
+        "Mantener una plataforma bilingüe, responsive y conectada con mi portafolio profesional independiente."
+      ],
+      "access": "Plataforma pública: puedes recorrer rutas, recursos y proyectos sin iniciar sesión."
     },
-    en: {
-      category: 'Platform and professional presence', status: 'Evolving project',
-      summary: 'A personal platform connecting learning, resources and projects through a coherent identity.',
-      problem: 'Separate repositories do not explain a journey. Technical work needs context, navigation and clear criteria for other people to understand it.',
-      role: 'Website design and development, content structure, bilingual routes, contact integration and ecosystem maintenance.',
-      features: [['Connected content', 'Learning paths, resources and projects with shared navigation.'], ['Bilingual experience', 'Spanish and English pages with theme preferences.'], ['Contact and publishing', 'Static website with a Worker for message processing and human verification.']],
-      decisions: [['Astro and static generation', 'Content generated at build time, with JavaScript for interactions that need it.'], ['Shared identity', 'Common typography, colors and components keep sections consistent.'], ['Separate contact service', 'The Worker keeps credentials outside the frontend and validates requests.']],
-      evidence: 'The project includes data validation, module checks, static builds and browser tests. The portfolio is integrated as its own website section.',
-      limits: 'The platform continues to evolve. Learning resources and professional projects serve different purposes and are presented in separate sections.',
-      next: 'Keep professional cases updated with visual evidence and expand learning resources.',
-    },
-  },
+    "en": {
+      "category": "My personal ecosystem",
+      "status": "Evolving project",
+      "summary": "A personal platform connecting learning, resources and projects through a coherent identity.",
+      "problem": "Separate repositories do not explain a journey. Technical work needs context, navigation and clear criteria for other people to understand it.",
+      "role": "Creation of the Chilete DevPath identity, platform design and development, organization of paths and resources, publishing and maintenance. The professional portfolio has its own website and connects to this ecosystem.",
+      "features": [
+        [
+          "Connected content",
+          "Learning paths, resources and projects with shared navigation."
+        ],
+        [
+          "Bilingual experience",
+          "Spanish and English pages with theme preferences."
+        ],
+        [
+          "Contact and publishing",
+          "Static website with a Worker for message processing and human verification."
+        ]
+      ],
+      "decisions": [
+        [
+          "Astro and static generation",
+          "Content generated at build time, with JavaScript for interactions that need it."
+        ],
+        [
+          "Shared identity",
+          "Common typography, colors and components keep sections consistent."
+        ],
+        [
+          "Separate contact service",
+          "The Worker keeps credentials outside the frontend and validates requests."
+        ]
+      ],
+      "evidence": "The platform includes data validation, module checks, static builds and browser tests. Its paths and resources can be explored publicly; the professional portfolio is maintained as an independent website.",
+      "limits": "The platform continues to evolve. Learning resources and professional projects serve different purposes and are presented in separate sections.",
+      "next": "Keep professional cases updated with visual evidence and expand learning resources.",
+      "outcomes": [
+        "Give my work and learning a personal identity and a shared entry point.",
+        "Organize paths, resources and evidence so others can explore them with context.",
+        "Maintain a bilingual, responsive platform connected to my independent professional portfolio."
+      ],
+      "access": "Public platform: explore paths, resources and projects without signing in."
+    }
+  }
 ];

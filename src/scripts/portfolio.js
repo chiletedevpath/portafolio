@@ -1,9 +1,10 @@
 import { sendContact } from './contact-request.js';
 import './welcome.js';
+import { revealElement } from './motion.js';
 for (const tablist of document.querySelectorAll('.system-tabs')) {
   const tabs = [...tablist.querySelectorAll('[role="tab"]')];
   const activate = tab => {
-    tabs.forEach(item => { const active = item === tab; item.setAttribute('aria-selected', String(active)); item.tabIndex = active ? 0 : -1; document.getElementById(item.getAttribute('aria-controls')).hidden = !active; });
+    tabs.forEach(item => { const active = item === tab; item.setAttribute('aria-selected', String(active)); item.tabIndex = active ? 0 : -1; const panel = document.getElementById(item.getAttribute('aria-controls')); panel.hidden = !active; if (active) revealElement(panel); });
   };
   tabs.forEach((tab, index) => {
     tab.addEventListener('click', () => activate(tab));
@@ -24,6 +25,8 @@ for (const button of document.querySelectorAll('[data-project-filter]')) {
     document.querySelectorAll('[data-project-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
     let count = 0;
     document.querySelectorAll('[data-project-kind]').forEach(project => { project.hidden = kind !== 'all' && project.dataset.projectKind !== kind; if (!project.hidden) count++; });
+    document.querySelectorAll('[data-project-group]').forEach(group => { group.hidden = ![...group.querySelectorAll('[data-project-kind]')].some(project => !project.hidden); });
+    document.querySelectorAll('[data-project-kind]:not([hidden])').forEach((project,index) => revealElement(project,index * 60));
     document.querySelector('[data-project-count]').textContent = `${count} ${document.documentElement.lang === 'en' ? 'projects' : 'proyectos'}`;
   });
 }

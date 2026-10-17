@@ -8,11 +8,14 @@ for (const language of ['es','en']) {
     await expect(page.locator('html')).toHaveAttribute('lang',language);
     await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href',`https://portafolio.chiletedevpath.com${root}/`);
     await expect(page.locator('.pf-project')).toHaveCount(3);
+    await expect(page.locator('.pf-project').first()).toHaveAttribute('data-project-kind','platform');
+    await expect(page.locator('.pf-flagship h3')).toHaveText('Chilete DevPath');
+    await expect(page.locator('[data-project-kind=systems]')).toHaveCount(2);
     await expect(page.locator('.pf-shell')).not.toContainText(/Ferreter[ií]a|SIGECAP/);
     const [download]=await Promise.all([page.waitForEvent('download'),page.locator('.pf-hero a[download]').click()]);
     expect(download.suggestedFilename()).toBe(`CV-Adrian-Pisco-${language.toUpperCase()}.pdf`);
     for(const href of await page.locator('.pf-shell a[href^="/"]').evaluateAll(links=>[...new Set(links.map(a=>a.getAttribute('href').split('#')[0]))])){if(href)expect((await request.get(href)).status(),href).toBe(200);}
-    for(const slug of ['chisabes','reminexa','chiletedevpath-web']){await page.goto(`${root}/proyectos/${slug}/`);await expect(page.locator('.pf-detail h1')).toBeVisible();await expect(page.locator('[data-welcome-route]')).not.toBeVisible();}
+    for(const slug of ['chisabes','reminexa','chiletedevpath-web']){await page.goto(`${root}/proyectos/${slug}/`);await expect(page.locator('.pf-detail h1')).toBeVisible();await expect(page.locator('#resultado .pf-outcomes li')).toHaveCount(3);await expect(page.locator('.pf-access-note')).toBeVisible();await expect(page.locator('[data-welcome-route]')).not.toBeVisible();}
   });
 }
 test('welcome route auto-completes and supports Escape',async({page})=>{
@@ -36,8 +39,8 @@ test('welcome content fits mobile screens',async({page})=>{
 });
 test('project filters and system explorer support keyboard navigation',async({page})=>{
   await page.goto('/',{waitUntil:'domcontentloaded'});await skipIntro(page);
-  await page.locator('[data-project-filter=systems]').click();await expect(page.locator('.pf-project:visible')).toHaveCount(2);
-  await page.locator('[data-project-filter=platform]').click();await expect(page.locator('.pf-project:visible')).toHaveCount(1);
+  await page.locator('[data-project-filter=systems]').click();await expect(page.locator('.pf-project:visible')).toHaveCount(2);await expect(page.locator('#chiletedevpath')).not.toBeVisible();
+  await page.locator('[data-project-filter=platform]').click();await expect(page.locator('.pf-project:visible')).toHaveCount(1);await expect(page.locator('#chiletedevpath')).toBeVisible();await expect(page.locator('[aria-labelledby=systems-title]')).not.toBeVisible();
   await page.locator('[data-project-filter=all]').click();await expect(page.locator('.pf-project:visible')).toHaveCount(3);
   await page.locator('#stage-tab-0').focus();await page.keyboard.press('ArrowRight');await expect(page.locator('#stage-tab-1')).toHaveAttribute('aria-selected','true');await expect(page.locator('#stage-panel-1')).toBeVisible();await page.keyboard.press('End');await expect(page.locator('#stage-panel-3')).toBeVisible();
 });

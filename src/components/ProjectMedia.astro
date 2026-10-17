@@ -1,0 +1,19 @@
+---
+const { media, lang = 'es' } = Astro.props;
+const t = (es, en) => lang === 'en' ? en : es;
+---
+<section id="demostracion" class="pf-section pf-media" aria-labelledby="media-title">
+  <div class="pf-section-heading"><div><span class="pf-kicker">{t('UNA MIRADA POR DENTRO', 'A LOOK INSIDE')}</span><h2 id="media-title">{t('Cada pantalla cuenta una historia.', 'Every screen tells a story.')}</h2></div><p>{t('Explora el proyecto, captura a captura. Del panorama general a los detalles que hacen la diferencia.', 'Explore the project, screenshot by screenshot. From the big picture to the details that make a difference.')}</p></div>
+  <div class="pf-album" data-album role="region" aria-roledescription={t('carrusel', 'carousel')} aria-label={t('Álbum de capturas del proyecto', 'Project screenshot album')}>
+    <div class="pf-album-bar"><span class="pf-album-dots" aria-hidden="true">● ● ●</span><span>{t('EXPLORADOR VISUAL', 'VISUAL EXPLORER')}</span><span data-album-count>01 / 0{media.images.length}</span></div>
+    <div class="pf-album-stage" tabindex="0" aria-label={t('Usa las flechas izquierda y derecha para cambiar de captura', 'Use left and right arrow keys to change screenshot')}>
+      {media.images.map((shot, index) => <figure data-album-slide data-src={shot.src} data-alt={shot.alt[lang]} data-caption={shot.caption[lang]} hidden={index !== 0} role="group" aria-roledescription={t('diapositiva', 'slide')} aria-label={`${index + 1} / ${media.images.length}`}>
+        {shot.src ? <img src={shot.src} alt={shot.alt[lang]} loading="lazy" width="1600" height="1000" /> : <div class="pf-album-empty" data-media-placeholder="image"><span class="pf-album-number" aria-hidden="true">0{index + 1}</span><span class="pf-kicker">{t('CAPTURA POR INCORPORAR', 'SCREENSHOT TO BE ADDED')}</span><strong>{shot.caption[lang]}</strong><small>{t('Aquí irá una captura real del proyecto.', 'A real project screenshot will appear here.')}</small></div>}
+      </figure>)}
+      <button type="button" class="pf-album-expand" data-album-expand disabled={!media.images[0]?.src} aria-label={t('Ampliar captura', 'Enlarge screenshot')}>↗ <span>{t('Ampliar', 'Enlarge')}</span></button>
+    </div>
+    <div class="pf-album-story"><div><span class="pf-kicker">{t('EL PROYECTO, EN PANTALLA', 'THE PROJECT, ON SCREEN')}</span><h3 data-album-title aria-live="polite" aria-atomic="true">{media.images[0]?.caption[lang]}</h3></div><div class="pf-album-controls"><button type="button" data-album-prev aria-label={t('Captura anterior', 'Previous screenshot')}>←</button><button type="button" data-album-next aria-label={t('Siguiente captura', 'Next screenshot')}>→</button></div></div>
+    <div class="pf-album-thumbs" aria-label={t('Seleccionar captura', 'Select screenshot')}>{media.images.map((shot,index) => <button type="button" data-album-thumb aria-pressed={index === 0} aria-label={`${index + 1}. ${shot.caption[lang]}`}><span class="pf-album-thumb-art">{shot.src ? <img src={shot.src} alt="" loading="lazy" width="240" height="150" /> : <span aria-hidden="true">0{index + 1}</span>}</span><span>{shot.caption[lang]}</span><span class="pf-album-thumb-line" aria-hidden="true"></span></button>)}</div>
+  </div>
+  <dialog class="pf-lightbox" data-gallery-dialog aria-label={t('Imagen ampliada del proyecto', 'Enlarged project image')}><button type="button" class="pf-lightbox-close" data-gallery-close aria-label={t('Cerrar imagen', 'Close image')}>✕</button><figure><img data-gallery-image alt="" /><figcaption data-gallery-caption></figcaption></figure></dialog>
+</section>
