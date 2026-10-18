@@ -1,51 +1,72 @@
-# Portafolio profesional de Adrián Pisco
+# Adrián Pisco · Desarrollo de software
 
-Sitio independiente de la web de aprendizaje Chilete DevPath. Presenta proyectos personales, perfil profesional, CV público en español e inglés y contacto.
+**Construyo software. Resuelvo problemas.**
 
-Dominio: `https://portafolio.chiletedevpath.com`. Alojamiento independiente en GitHub Pages; DNS administrado en Cloudflare.
+Soy desarrollador web full stack con Java y estudiante de Ingeniería de Sistemas e Informática. Construyo aplicaciones con atención a los datos, las reglas del negocio y la experiencia de quien las utiliza.
 
-La [ruta de cierre](docs/ruta-de-cierre.md) organiza la revisión de proyectos, evidencia, actualización del CV y publicación. El diseño actual se conserva mientras se completa esa ruta.
+Desde Chilete, Cajamarca, Perú, organizo mi aprendizaje y doy forma a proyectos propios. Mi experiencia en operaciones, control y monitoreo aporta una manera de trabajar: entender el contexto, mantener trazabilidad y responder con precisión.
 
-## Experiencia
+**[Explorar mi portafolio →](https://portafolio.chiletedevpath.com/)** · [English version](https://portafolio.chiletedevpath.com/en/)
 
-La portada conserva su diseño y da paso al trabajo organizado en dos grupos: Chilete DevPath como proyecto insignia y ChiSabes y REMINEXA como sistemas aplicados. Después aparecen el enfoque de desarrollo, el perfil, el CV y el contacto. Cada ficha explica problema, aporte propio, solución, decisiones técnicas, resultado y evidencia, con el alcance y la evolución del proyecto diferenciados.
+## Proyectos que me representan
 
-- Identidad tecnológica propia, temas oscuro y claro y diseño responsive.
-- Bienvenida con ruta ilustrada hacia Chilete, omisión por botón o Escape y respeto a movimiento reducido. Una vez por sesión.
-- ChiSabes, REMINEXA y Chilete DevPath Web con páginas bilingües y alcance documentado.
-- Explorador de etapas de desarrollo accesible con teclado y filtros de proyectos.
-- CV descargable en ambos idiomas y vista previa.
-- Contacto mediante el Worker de Chilete DevPath, preparado para el nuevo origen.
+### Chilete DevPath · Mi proyecto insignia
 
-No incluye proyectos académicos, Ferretería Soto ni SIGECAP. La formación sí aparece en el perfil. El Word original en `cv/` permanece local e ignorado; solo se distribuyen PDF públicos con correo y enlaces profesionales.
+La plataforma que conecta mi identidad, lo que aprendo y las soluciones que construyo. Organizo rutas de aprendizaje, comparto recursos y presento mi trabajo bajo una identidad propia.
 
-## Ejecución
+[Conocer su historia y construcción](https://portafolio.chiletedevpath.com/proyectos/chiletedevpath-web/) · [Explorar la plataforma](https://chiletedevpath.com/)
 
-Desde PowerShell en la raíz del repositorio:
+### ChiSabes · Finanzas personales
+
+Una aplicación para ordenar cuentas, movimientos y compromisos financieros. Mi aporte abarca la interfaz, la API, el modelado de datos, la autenticación y las reglas que conservan saldos e historia al corregir operaciones.
+
+**Next.js · TypeScript · Spring Boot · PostgreSQL**
+
+[Explorar el caso](https://portafolio.chiletedevpath.com/proyectos/chisabes/)
+
+### REMINEXA · Recordatorios personales
+
+Un sistema para organizar recordatorios y consultar su historial. En su caso explico la construcción de la interfaz, la API y la integración de los avisos, junto con las decisiones y los límites de la versión presentada.
+
+[Explorar el caso](https://portafolio.chiletedevpath.com/proyectos/reminexa/)
+
+Las fichas cuentan el problema, mi participación, la solución y las decisiones técnicas. También distinguen el alcance actual de las mejoras y evidencias pendientes; los álbumes se completarán con capturas reales de cada proyecto.
+
+## Cómo trabajo
+
+- Entiendo la necesidad antes de elegir la solución.
+- Modelo datos y reglas para que el comportamiento sea consistente.
+- Cuido la claridad de las interfaces, la accesibilidad y la adaptación a distintas pantallas.
+- Valido los recorridos principales y explico las decisiones con su contexto y sus límites.
+
+Trabajo con **Java, Spring Boot, PostgreSQL, TypeScript, React, Next.js y Astro**, apoyándome en Git, Docker y pruebas con JUnit y Playwright según el proyecto.
+
+## Perfil y CV
+
+Estudio Ingeniería de Sistemas e Informática en la Universidad Tecnológica del Perú y completé el programa de Desarrollo Web Fullstack con Java de Código powered by Tecsup.
+
+[Descargar CV en español](https://portafolio.chiletedevpath.com/assets/portfolio/CV-Adrian-Pisco-ES.pdf) · [Download CV in English](https://portafolio.chiletedevpath.com/assets/portfolio/CV-Adrian-Pisco-EN.pdf)
+
+## Conversemos
+
+Proyectos, oportunidades o colaboración:
+
+[Correo](mailto:chiletedevpath@gmail.com) · [LinkedIn](https://www.linkedin.com/in/adri%C3%A1n-piscos) · [GitHub](https://github.com/chiletedevpath) · [Contacto en el portafolio](https://portafolio.chiletedevpath.com/#contacto)
+
+---
+
+<details>
+<summary>Sobre el desarrollo de este sitio</summary>
+
+Portafolio bilingüe construido con Astro, con componentes y estilos separados por responsabilidad. Incluye temas claro y oscuro, CV descargable, álbumes de proyectos, navegación por teclado y respeto a la preferencia de movimiento reducido.
+
+Para trabajar en el sitio, desde la raíz del repositorio:
 
 ```powershell
 npm ci
-npm run dev -- --host 127.0.0.1 --port 4395
+npm run dev
 ```
 
-`npm run build` genera `dist/`. `npm test` valida la experiencia después del build.
+`npm run build` genera el sitio y `npm test` valida la experiencia después de compilar. Los cambios en `main` pasan por pruebas y despliegue automático. Los datos de los casos están en `src/data/portfolio.js`; las capturas y los enlaces de sustento, en `src/data/projectMedia.js`.
 
-La portada, el perfil y el CV están separados en componentes. `src/styles/portfolio/` agrupa los estilos por responsabilidad; `src/styles/responsive.css` define el reflujo compartido, los tamaños táctiles y las adaptaciones por ancho y orientación. Las pruebas responsive recorren las ocho páginas en 13 pantallas de 320 a 2560 px, incluyendo orientación horizontal, ambos idiomas y tema claro.
-
-## Publicación
-
-Los cambios en `main` ejecutan `.github/workflows/deploy.yml`: instalación, build, pruebas de navegador y despliegue de `dist/`. El dominio personalizado está asociado en GitHub Pages y registrado en `public/CNAME`. En Cloudflare, el CNAME `portafolio` apunta a `chiletedevpath.github.io`, con DNS only y TTL automático. La web principal conserva su alojamiento y dominio.
-
-El Worker de contacto admite el origen y hostname del portafolio. El widget Turnstile existente permite `chiletedevpath.com` y sus subdominios. La prueba de entrega real de un mensaje requiere un envío autorizado; las capturas y los documentos de sustento pendientes pueden incorporarse después.
-
-Las pruebas de contacto usan respuestas simuladas y no verifican entrega externa. Las fichas describen documentación local, no monitorización en vivo.
-
-## Mantenimiento
-
-### Álbum de capturas y sustento
-
-Cada ficha presenta un álbum con imagen protagonista, miniaturas, flechas, teclado, deslizamiento móvil y ampliación. No hay reproducción automática. Las transiciones respetan movimiento reducido.
-
-Configurar las capturas en `src/data/projectMedia.js`, en `images`: `src` es la URL de la imagen y `alt` / `caption` sus textos bilingües. Guardar archivos reales en `public/proyectos/<slug>/`, por ejemplo `/proyectos/chisabes/vista-general.webp`. Se pueden añadir más imágenes. Los espacios sin fuente se identifican como pendientes y no permiten ampliación.
-
-`supporting[].href` admite documentos o enlaces públicos de arquitectura, decisiones y pruebas. Usar capturas sanitizadas, sin datos personales, tokens o información privada.
+</details>
