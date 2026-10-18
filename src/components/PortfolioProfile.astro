@@ -1,0 +1,74 @@
+---
+const { lang = "es" } = Astro.props;
+const en = lang === "en";
+const t = (es, english) => (en ? english : es);
+const root = en ? "/en" : "";
+const skills = [
+  [
+    t("Backend y datos", "Backend and data"),
+    "Java · Spring Boot · PostgreSQL · Flyway",
+    "ChiSabes",
+    `${root}/proyectos/chisabes/#decisiones`,
+  ],
+  [
+    t("Interfaces web", "Web interfaces"),
+    "React · Next.js · TypeScript · Astro",
+    "REMINEXA",
+    `${root}/proyectos/reminexa/#funciones`,
+  ],
+  [
+    t("Diseño y calidad", "Design and quality"),
+    "POO · REST · JUnit · Playwright · Git",
+    "ChiSabes",
+    `${root}/proyectos/chisabes/#evidencia`,
+  ],
+  [
+    t("Integración y operación", "Integration and operations"),
+    "Docker · Cloudflare · Resend · CI",
+    "REMINEXA",
+    `${root}/proyectos/reminexa/#decisiones`,
+  ],
+];
+---
+
+<section
+  id="perfil"
+  class="pf-section pf-profile"
+  aria-labelledby="profile-title"
+>
+  <div>
+    <span class="pf-kicker">02 / {t("PERFIL", "PROFILE")}</span>
+    <h2 id="profile-title">
+      {t(
+        "Tecnología con disciplina operativa.",
+        "Technology with operational discipline.",
+      )}
+    </h2>
+    <p>
+      {t(
+        "Estudio Ingeniería de Sistemas e Informática en la Universidad Tecnológica del Perú y completé el programa de Desarrollo Web Fullstack con Java de Código powered by Tecsup.",
+        "I study Systems and Informatics Engineering at Universidad Tecnológica del Perú and completed Código powered by Tecsup’s Java Fullstack Web Development program.",
+      )}
+    </p>
+    <p>
+      {t(
+        "Mi trayectoria en operaciones, control y monitoreo me ha enseñado a registrar incidentes, mantener trazabilidad y responder con precisión. Aplico ese criterio al desarrollo de software.",
+        "My background in operations, control and monitoring has taught me to record incidents, maintain traceability and respond precisely. I bring that judgment to software development.",
+      )}
+    </p>
+    <a class="pf-case-link" href="#contacto">
+      {t("Conectar conmigo", "Connect with me")} ↗
+    </a>
+  </div>
+  <div class="pf-skills">
+    {skills.map(([title, tech, project, href]) => (
+      <article>
+        <h3>{title}</h3>
+        <p>{tech}</p>
+        <a href={href}>
+          {t("Ver aplicado en", "See it in")} {project} ↗
+        </a>
+      </article>
+    ))}
+  </div>
+</section>

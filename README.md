@@ -30,6 +30,8 @@ npm run dev -- --host 127.0.0.1 --port 4395
 
 `npm run build` genera `dist/`. `npm test` valida la experiencia después del build.
 
+La portada, el perfil y el CV están separados en componentes. `src/styles/portfolio/` agrupa los estilos por responsabilidad; `src/styles/responsive.css` define el reflujo compartido, los tamaños táctiles y las adaptaciones por ancho y orientación. Las pruebas responsive recorren las ocho páginas en 13 pantallas de 320 a 2560 px, incluyendo orientación horizontal, ambos idiomas y tema claro.
+
 ## Publicación
 
 Los cambios en `main` ejecutan `.github/workflows/deploy.yml`: instalación, build, pruebas de navegador y despliegue de `dist/`. El dominio personalizado está asociado en GitHub Pages y registrado en `public/CNAME`. En Cloudflare, el CNAME `portafolio` apunta a `chiletedevpath.github.io`, con DNS only y TTL automático. La web principal conserva su alojamiento y dominio.

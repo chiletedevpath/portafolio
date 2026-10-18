@@ -1,0 +1,289 @@
+.pf-album {
+  position: relative;
+  min-width: 0;
+  border: 1px solid
+    color-mix(in srgb, var(--tema-acento) 38%, var(--tema-borde));
+  border-radius: 18px;
+  background: var(--tema-superficie);
+  box-shadow: 0 25px 80px #02081730;
+  overflow: hidden;
+}
+.pf-album-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+  padding: 17px 24px;
+  border-bottom: 1px solid var(--tema-borde);
+  font: 0.65rem var(--fuente-mono);
+  letter-spacing: 0.1em;
+  color: var(--tema-texto-suave);
+}
+.pf-album-dots {
+  color: var(--tema-acento);
+  letter-spacing: 5px;
+}
+.pf-album-stage {
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid var(--tema-borde);
+  background: var(--tema-superficie-alterna);
+  touch-action: pan-y;
+  outline-offset: 4px;
+}
+.pf-album-stage figure {
+  margin: 0;
+  aspect-ratio: 16/9;
+  min-width: 0;
+}
+.pf-album-stage figure[hidden] {
+  display: none;
+}
+.pf-album-stage figure > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pf-album-empty {
+  position: relative;
+  isolation: isolate;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 25px;
+  background:
+    radial-gradient(ellipse at 25% 10%, #7967ff24, transparent 65%),
+    radial-gradient(ellipse at 85% 100%, #22d3ee19, transparent 65%);
+}
+.pf-album-empty:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--tema-borde) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tema-borde) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse, #0005, transparent 75%);
+}
+.pf-album-number {
+  font: clamp(4rem, 10vw, 9rem)/1 var(--fuente-mono);
+  letter-spacing: -0.09em;
+  color: color-mix(in srgb, var(--tema-acento) 36%, transparent);
+  text-shadow: 0 0 55px #8775ff35;
+}
+.pf-album-empty strong {
+  font-size: clamp(1.1rem, 2.8vw, 1.9rem);
+  font-weight: 500;
+}
+.pf-album-empty small {
+  color: var(--tema-texto-suave);
+  font-size: 0.8rem;
+}
+.pf-album-empty .pf-kicker {
+  font-size: 0.58rem;
+}
+.pf-album-expand {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  border: 1px solid var(--tema-borde);
+  border-radius: 8px;
+  background: var(--tema-superficie);
+  color: var(--tema-texto);
+  padding: 9px 14px;
+  cursor: zoom-in;
+  transition:
+    transform 0.25s,
+    border-color 0.25s;
+}
+.pf-album-expand:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.pf-album-expand:not(:disabled):hover {
+  transform: translateY(-3px);
+  border-color: var(--tema-acento);
+}
+.pf-album-story {
+  padding: 6px 26px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.pf-shell .pf-album-story h3 {
+  font-size: 1.3rem;
+  margin: 9px 0 0;
+}
+.pf-album-story .pf-kicker {
+  font-size: 0.6rem;
+}
+.pf-album-controls {
+  display: flex;
+  gap: 9px;
+}
+.pf-album-controls button {
+  border: 1px solid var(--tema-borde);
+  border-radius: 50%;
+  height: 44px;
+  width: 44px;
+  background: var(--tema-superficie);
+  color: var(--tema-texto);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.pf-album-controls button:hover {
+  background: var(--tema-acento);
+  color: #080c19;
+  transform: translateY(-2px);
+}
+.pf-album-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px 26px 24px;
+  border-top: 1px solid var(--tema-borde);
+  background: color-mix(
+    in srgb,
+    var(--tema-superficie-alterna) 55%,
+    transparent
+  );
+}
+.pf-album-thumbs button {
+  min-width: 0;
+  text-align: left;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--tema-texto-suave);
+  cursor: pointer;
+  font: 0.75rem var(--fuente-base);
+  transition:
+    color 0.2s,
+    transform 0.25s;
+}
+.pf-album-thumbs button:hover {
+  transform: translateY(-3px);
+  color: var(--tema-texto);
+}
+.pf-album-thumbs button[aria-pressed="true"] {
+  color: var(--tema-texto);
+}
+.pf-album-thumb-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16/7;
+  overflow: hidden;
+  border: 1px solid var(--tema-borde);
+  border-radius: 7px;
+  margin-bottom: 11px;
+  background: linear-gradient(135deg, #7663dd15, #20cfe50b);
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.pf-album-thumb-art > span {
+  font: 1.6rem var(--fuente-mono);
+  opacity: 0.4;
+}
+.pf-album-thumb-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.pf-album-thumbs button:hover img {
+  transform: scale(1.04);
+}
+.pf-album-thumbs button[aria-pressed="true"] .pf-album-thumb-art {
+  border-color: var(--tema-acento);
+  box-shadow: 0 0 22px #7967ff20;
+}
+.pf-album-thumb-line {
+  display: block;
+  height: 2px;
+  margin-top: 12px;
+  background: var(--tema-borde);
+  position: relative;
+}
+.pf-album-thumb-line:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--tema-acento);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s;
+}
+.pf-album-thumbs button[aria-pressed="true"] .pf-album-thumb-line:after {
+  transform: scaleX(1);
+}
+@media (max-width: 620px) {
+  .pf-album-bar {
+    padding: 14px;
+    font-size: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+  .pf-album-stage {
+    margin: 10px;
+  }
+  .pf-album-stage figure {
+    aspect-ratio: 4/3;
+  }
+  .pf-album-empty {
+    gap: 9px;
+    padding: 20px 12px;
+  }
+  .pf-album-empty small {
+    font-size: 0.65rem;
+    max-width: 200px;
+  }
+  .pf-album-number {
+    font-size: 4rem;
+  }
+  .pf-album-expand {
+    right: 8px;
+    bottom: 8px;
+    padding: 6px;
+    font-size: 0.65rem;
+  }
+  .pf-album-story {
+    padding: 10px 15px 20px;
+    gap: 10px;
+  }
+  .pf-shell .pf-album-story h3 {
+    font-size: 1.05rem;
+  }
+  .pf-album-story .pf-kicker {
+    font-size: 0.46rem;
+  }
+  .pf-album-controls button {
+    width: 36px;
+    height: 36px;
+  }
+  .pf-album-thumbs {
+    padding: 15px;
+    gap: 10px;
+  }
+  .pf-album-thumbs button {
+    font-size: 0.62rem;
+  }
+  .pf-album-thumb-art {
+    aspect-ratio: 4/3;
+  }
+  .pf-album-thumb-art > span {
+    font-size: 1.2rem;
+  }
+}

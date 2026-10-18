@@ -1,0 +1,61 @@
+.pf-contact .pf-email {
+  display: block;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--tema-acento);
+  overflow-wrap: anywhere;
+}
+.pf-form {
+  padding: 30px;
+  background: var(--tema-superficie);
+  border: 1px solid var(--tema-borde);
+  border-radius: 10px;
+}
+.pf-form > label {
+  display: grid;
+  gap: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 18px;
+}
+.pf-form input:not([type="checkbox"]),
+.pf-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--tema-borde);
+  border-radius: 5px;
+  background: var(--tema-fondo);
+  color: var(--tema-texto);
+  font: 1rem var(--fuente-base);
+}
+.pf-form input:focus,
+.pf-form textarea:focus {
+  outline: 2px solid var(--tema-acento);
+  outline-offset: 2px;
+}
+.pf-form textarea {
+  resize: vertical;
+}
+.pf-form .pf-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+  margin-top: 15px;
+}
+.pf-consent input {
+  margin-top: 4px;
+}
+.pf-consent a {
+  text-decoration: underline;
+}
+.pf-form [data-form-status] {
+  margin: 15px 0 0;
+  font-size: 0.9rem;
+}
+.pf-form .acciones-formulario {
+  margin-top: 20px;
+}
+@media (max-width: 620px) {
+  .pf-form {
+    padding: 22px;
+  }
+}

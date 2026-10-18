@@ -1,3 +1,123 @@
-@import './core/tokens.css';
-@import './core/reset.css';
-html{scroll-behavior:smooth}body{background:var(--tema-fondo);color:var(--tema-texto);font-family:var(--fuente-base);line-height:1.6}button{cursor:pointer}a:focus-visible,button:focus-visible{outline:3px solid var(--tema-acento);outline-offset:4px}.skip-link{position:absolute;top:0;left:20px;transform:translateY(-150%);background:var(--tema-superficie);padding:12px;z-index:30}.skip-link:focus{transform:none}.portfolio-header{border-bottom:1px solid var(--tema-borde);background:var(--tema-fondo)}.portfolio-header nav{max-width:1240px;padding:25px 40px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:20px}.portfolio-brand{font-weight:700;font-size:1.1rem}.portfolio-brand span{color:var(--tema-texto-suave);font-weight:400}.portfolio-header nav>div{display:flex;gap:25px;align-items:center;font-size:.85rem}.portfolio-header button{background:var(--tema-superficie);border:1px solid var(--tema-borde);color:var(--tema-texto);border-radius:50%;width:35px;height:35px}.portfolio-footer{padding:40px;text-align:center;border-top:1px solid var(--tema-borde);color:var(--tema-texto-suave)}.portfolio-footer strong{font-size:1.2rem;color:var(--tema-principal)}.portfolio-footer a,.portfolio-footer small{display:block;margin-top:12px}.campo-trampa{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.verificacion-formulario{margin-top:20px}.verificacion-etiqueta{display:block;font-size:.85rem;margin-bottom:10px}.formulario-estado-error{color:var(--tema-alerta)!important}.formulario-estado-exito{color:var(--tema-acento)!important}@media(max-width:620px){.portfolio-header nav{padding:18px 20px;flex-wrap:wrap}.portfolio-header nav>div{width:100%;justify-content:space-between}.portfolio-brand{font-size:1rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+@import "./core/tokens.css";
+@import "./core/reset.css";
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--tema-fondo);
+  color: var(--tema-texto);
+  font-family: var(--fuente-base);
+  line-height: 1.6;
+}
+button {
+  cursor: pointer;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--tema-acento);
+  outline-offset: 4px;
+}
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  transform: translateY(-150%);
+  background: var(--tema-superficie);
+  padding: 12px;
+  z-index: 30;
+}
+.skip-link:focus {
+  transform: none;
+}
+.portfolio-header {
+  border-bottom: 1px solid var(--tema-borde);
+  background: var(--tema-fondo);
+}
+.portfolio-header nav {
+  max-width: 1240px;
+  padding: 25px 40px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.portfolio-brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.portfolio-brand span {
+  color: var(--tema-texto-suave);
+  font-weight: 400;
+}
+.portfolio-header nav > div {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.portfolio-header button {
+  background: var(--tema-superficie);
+  border: 1px solid var(--tema-borde);
+  color: var(--tema-texto);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+.portfolio-footer {
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--tema-borde);
+  color: var(--tema-texto-suave);
+}
+.portfolio-footer strong {
+  font-size: 1.2rem;
+  color: var(--tema-principal);
+}
+.portfolio-footer a,
+.portfolio-footer small {
+  display: block;
+  margin-top: 12px;
+}
+.campo-trampa {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.verificacion-formulario {
+  margin-top: 20px;
+}
+.verificacion-etiqueta {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+.formulario-estado-error {
+  color: var(--tema-alerta) !important;
+}
+.formulario-estado-exito {
+  color: var(--tema-acento) !important;
+}
+@media (max-width: 620px) {
+  .portfolio-header nav {
+    padding: 18px 20px;
+    flex-wrap: wrap;
+  }
+  .portfolio-header nav > div {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .portfolio-brand {
+    font-size: 1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+  }
+}

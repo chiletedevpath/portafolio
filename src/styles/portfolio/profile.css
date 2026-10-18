@@ -1,0 +1,114 @@
+.pf-profile,
+.pf-cv,
+.pf-contact,
+.pf-two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+}
+.pf-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.pf-skills article {
+  padding: 24px;
+  background: var(--tema-superficie);
+  border: 1px solid var(--tema-borde);
+  border-radius: 8px;
+}
+.pf-skills h3 {
+  font-size: 1.08rem;
+}
+.pf-skills p {
+  font-size: 0.9rem;
+}
+.pf-skills a {
+  font-size: 0.78rem;
+  color: var(--tema-acento);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.pf-cv small {
+  color: var(--tema-texto-suave);
+  line-height: 1.6;
+}
+.pf-timeline {
+  border-left: 1px solid var(--tema-borde);
+  padding-left: 30px;
+}
+.pf-timeline article {
+  position: relative;
+  margin-bottom: 30px;
+}
+.pf-timeline article:before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  background: var(--tema-acento);
+  border-radius: 50%;
+  position: absolute;
+  left: -35px;
+  top: 8px;
+}
+.pf-timeline article > span {
+  font: 0.75rem var(--fuente-mono);
+  color: var(--tema-acento);
+  display: block;
+  margin-bottom: 12px;
+}
+.pf-timeline h3 {
+  font-size: 1.2rem;
+}
+.pf-timeline p {
+  font-size: 0.95rem;
+  margin-bottom: 6px;
+}
+.pf-cv-preview {
+  margin-top: 25px;
+  border: 1px solid var(--tema-borde);
+  border-radius: 7px;
+  padding: 17px;
+}
+.pf-cv-preview summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.pf-cv-preview object {
+  margin: 20px 0;
+  max-width: 100%;
+}
+.pf-cv-preview a {
+  text-decoration: underline;
+}
+.pf-contact {
+  border-bottom: 0;
+}
+@media (max-width: 900px) {
+  .pf-section-heading,
+  .pf-profile,
+  .pf-cv,
+  .pf-contact,
+  .pf-two-columns {
+    gap: 35px;
+  }
+  .pf-skills {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 620px) {
+  .pf-section-heading,
+  .pf-profile,
+  .pf-cv,
+  .pf-contact,
+  .pf-two-columns {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .pf-skills {
+    grid-template-columns: 1fr;
+  }
+  .pf-cv-preview object {
+    height: 450px;
+  }
+}

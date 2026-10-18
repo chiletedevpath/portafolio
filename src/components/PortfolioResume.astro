@@ -1,0 +1,94 @@
+---
+const { lang = "es" } = Astro.props;
+const en = lang === "en";
+const t = (es, english) => (en ? english : es);
+const cv = `/assets/portfolio/CV-Adrian-Pisco-${en ? "EN" : "ES"}.pdf`;
+---
+
+<section id="cv" class="pf-section pf-cv" aria-labelledby="cv-title">
+  <div>
+    <span class="pf-kicker">03 / {t("TRAYECTORIA", "BACKGROUND")}</span>
+    <h2 id="cv-title">
+      {t("Mi perfil, en un documento.", "My profile, in one document.")}
+    </h2>
+    <p>
+      {t(
+        "Formación, competencias, proyectos personales y experiencia. Una versión pública preparada para compartir.",
+        "Education, skills, personal projects and experience. A public version prepared for sharing.",
+      )}
+    </p>
+    <small>
+      {t(
+        "Actualizado el 13 de octubre de 2026 · PDF con texto seleccionable",
+        "Updated October 13, 2026 · PDF with selectable text",
+      )}
+    </small>
+    <div class="pf-actions">
+      <a class="pf-button" href={cv} download>
+        {t("Descargar CV en español", "Download CV in English")} ↓
+      </a>
+      <a
+        class="pf-button pf-secondary"
+        href={`/assets/portfolio/CV-Adrian-Pisco-${en ? "ES" : "EN"}.pdf`}
+        download
+      >
+        {en ? "CV en español" : "CV in English"} ↓
+      </a>
+    </div>
+    <details class="pf-cv-preview">
+      <summary>{t("Vista previa del CV", "Preview CV")}</summary>
+      <object
+        data={cv}
+        type="application/pdf"
+        width="100%"
+        height="700"
+        aria-label={t("Vista previa del currículum", "Resume preview")}
+      >
+        <p>
+          <a href={cv}>{t("Abrir el PDF", "Open PDF")}</a>
+        </p>
+      </object>
+      <a href={cv} target="_blank" rel="noopener noreferrer">
+        {t("Abrir PDF en otra pestaña", "Open PDF in another tab")} ↗
+      </a>
+    </details>
+  </div>
+  <div class="pf-timeline">
+    <article>
+      <span>2024 →</span>
+      <h3>
+        {t(
+          "Ingeniería de Sistemas e Informática",
+          "Systems and Informatics Engineering",
+        )}
+      </h3>
+      <p>Universidad Tecnológica del Perú</p>
+      <small>{t("En curso", "In progress")}</small>
+    </article>
+    <article>
+      <span>2025 — 2026</span>
+      <h3>
+        {t(
+          "Desarrollo Web Fullstack con Java",
+          "Java Fullstack Web Development",
+        )}
+      </h3>
+      <p>Código powered by Tecsup · 240 {t("horas", "hours")}</p>
+    </article>
+    <article>
+      <span>2018 →</span>
+      <h3>
+        {t(
+          "Operaciones, control y monitoreo",
+          "Operations, control and monitoring",
+        )}
+      </h3>
+      <p>
+        {t(
+          "Experiencia en seguimiento de incidentes, reportes y coordinación operativa.",
+          "Experience in incident tracking, reporting and operational coordination.",
+        )}
+      </p>
+    </article>
+  </div>
+</section>

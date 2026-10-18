@@ -3,7 +3,8 @@ const { lang = 'es' } = Astro.props;
 const en = lang === 'en';
 ---
 <dialog class="welcome-route" data-welcome-route aria-labelledby="welcome-title" aria-describedby="welcome-description">
-  <div class="welcome-scene" aria-hidden="true">
+  <div class="welcome-visual" aria-hidden="true">
+  <div class="welcome-scene">
     <svg viewBox="0 0 1200 760" fill="none" preserveAspectRatio="xMidYMid meet">
       <defs>
         <linearGradient id="terrain-fill" x1="600" y1="100" x2="600" y2="760" gradientUnits="userSpaceOnUse"><stop stop-color="#243563" stop-opacity=".35"/><stop offset="1" stop-color="#081020" stop-opacity="0"/></linearGradient>
@@ -36,6 +37,7 @@ const en = lang === 'en';
       <g class="welcome-destination"><ellipse cx="885" cy="284" rx="44" ry="17" stroke="#77e5e7" stroke-opacity=".45"/><ellipse cx="885" cy="284" rx="72" ry="27" stroke="#77e5e7" stroke-opacity=".2"/><path d="M885 284V190" stroke="#85eef0" stroke-width="1.5"/><circle cx="885" cy="190" r="5" fill="#9af4f1"/><path d="M897 170H1040V228H897" fill="#0b192c" stroke="#498994" stroke-opacity=".5"/><text x="914" y="195" fill="#efffff" font-family="Arial,sans-serif" font-size="18" font-weight="700">CHILETE</text><text x="914" y="213" fill="#7eaebc" font-family="monospace" font-size="10">CAJAMARCA · PERÚ</text></g>
       <g fill="#476187"><circle cx="460" cy="128" r="2"/><circle cx="736" cy="89" r="2"/><circle cx="1070" cy="82" r="2"/><circle cx="1020" cy="322" r="2"/><circle cx="341" cy="470" r="2"/></g>
     </svg>
+  </div>
   </div>
   <div class="welcome-inner">
     <div class="welcome-top"><div class="welcome-brand" aria-hidden="true"><span>AP<span class="welcome-brand-dot">.</span></span><small>ADRIÁN PISCO</small></div><button type="button" data-skip-intro>{en ? 'Enter portfolio' : 'Entrar al portafolio'} <span aria-hidden="true">↗</span></button></div>

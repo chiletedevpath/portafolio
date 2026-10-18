@@ -1,3 +1,5 @@
+/* Clip only the decorative landscape; welcome text can still reflow and scroll. */
+.welcome-visual{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1}
 .welcome-route{position:fixed;inset:0;width:100vw;height:100dvh;max-width:none;max-height:none;margin:0;border:0;padding:0;background:#060c19;color:#edf4ff;overflow:auto;isolation:isolate}
 .welcome-route:not([open]){display:none}.welcome-route::backdrop{background:#060c19}.welcome-route::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 70% 45%,#1b315940,transparent 60%),linear-gradient(90deg,#8ca9e005 1px,transparent 1px),linear-gradient(#8ca9e005 1px,transparent 1px);background-size:auto,60px 60px,60px 60px}
 .welcome-inner{position:relative;z-index:1;max-width:1400px;min-height:100dvh;margin:auto;padding:35px 60px;display:flex;flex-direction:column;justify-content:space-between;gap:30px}

@@ -1,0 +1,126 @@
+.system-console {
+  border: 1px solid var(--tema-borde);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--tema-superficie);
+}
+.console-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  background: var(--tema-superficie-alterna);
+  padding: 15px 23px;
+  font: 0.75rem var(--fuente-mono);
+  color: var(--tema-texto-suave);
+}
+.console-top > span:first-child {
+  letter-spacing: 0.15em;
+  color: var(--tema-acento);
+}
+.console-top small {
+  font-size: 0.6rem;
+}
+.system-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-bottom: 1px solid var(--tema-borde);
+}
+.system-tabs button {
+  border: 0;
+  border-right: 1px solid var(--tema-borde);
+  border-bottom: 2px solid transparent;
+  padding: 23px 15px;
+  background: transparent;
+  color: var(--tema-texto-suave);
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.system-tabs button span {
+  font: 0.7rem var(--fuente-mono);
+}
+.system-tabs button[aria-selected="true"] {
+  color: var(--tema-acento);
+  border-bottom-color: var(--tema-acento);
+  background: var(--tema-superficie-alterna);
+}
+.system-panel {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 45px;
+  min-height: 250px;
+  padding: 40px 60px;
+}
+.system-panel[hidden] {
+  display: none;
+}
+.system-panel h3 {
+  font-size: 1.7rem;
+  margin: 12px 0;
+}
+.system-panel p {
+  max-width: 700px;
+  margin: 0;
+}
+.system-node {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  border: 1px solid var(--tema-borde);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin: auto;
+}
+.system-node:before,
+.system-node:after {
+  content: "";
+  position: absolute;
+  border: 1px dashed var(--tema-acento);
+  border-radius: 50%;
+  inset: -17px;
+  opacity: 0.4;
+}
+.system-node:after {
+  inset: 13px;
+  border-style: solid;
+  opacity: 0.2;
+}
+.system-node > span {
+  font: 500 2rem var(--fuente-mono);
+  color: var(--tema-acento);
+}
+.system-node > div {
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: var(--tema-acento);
+  border-radius: 50%;
+  top: -4px;
+  box-shadow: 0 0 15px var(--tema-acento);
+}
+@media (max-width: 620px) {
+  .system-tabs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .system-tabs button {
+    padding: 18px 10px;
+    font-size: 0.8rem;
+  }
+  .system-panel {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 35px 25px;
+  }
+  .system-node {
+    width: 80px;
+    height: 80px;
+  }
+  .console-top small {
+    display: none;
+  }
+}

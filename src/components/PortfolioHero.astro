@@ -1,0 +1,64 @@
+---
+const { lang = "es" } = Astro.props;
+const en = lang === "en";
+const t = (es, english) => (en ? english : es);
+const cv = `/assets/portfolio/CV-Adrian-Pisco-${en ? "EN" : "ES"}.pdf`;
+---
+
+<header class="pf-hero">
+  <div class="pf-hero-copy">
+    <span class="pf-kicker">
+      ADRIÁN PISCO / {t("PORTAFOLIO PROFESIONAL", "PROFESSIONAL PORTFOLIO")}
+    </span>
+    <h1>
+      {t("Construyo software.", "I build software.")}
+      <br />
+      <em>{t("Resuelvo problemas.", "I solve problems.")}</em>
+    </h1>
+    <p class="pf-position">
+      {t(
+        "Desarrollador web full stack con Java · Estudiante de Ingeniería de Sistemas e Informática",
+        "Java full stack web developer · Systems and Informatics Engineering student",
+      )}
+    </p>
+    <p>
+      {t(
+        "Construyo aplicaciones web con atención a los datos, las reglas del negocio y la experiencia de quien las utiliza.",
+        "I build web applications with attention to data, business rules and the people who use them.",
+      )}
+    </p>
+    <div class="pf-actions">
+      <a class="pf-button" href="#trabajo">
+        {t("Explorar mi trabajo", "Explore my work")} ↓
+      </a>
+      <a class="pf-button pf-secondary" href={cv} download>
+        {t("Descargar CV", "Download CV")} ↗
+      </a>
+    </div>
+  </div>
+  <figure class="pf-portrait">
+    <img
+      src="/assets/img/adrian-pisco-retrato.webp"
+      width="640"
+      height="800"
+      alt={t("Retrato de Adrián Pisco", "Portrait of Adrián Pisco")}
+      fetchpriority="high"
+    />
+    <figcaption>
+      <span>{t("DESARROLLO + CRITERIO", "DEVELOPMENT + JUDGMENT")}</span>
+      <strong>Adrián Pisco</strong>
+      <small>
+        {t(
+          "Desde Perú, construyendo con propósito.",
+          "Based in Peru, building with purpose.",
+        )}
+      </small>
+    </figcaption>
+  </figure>
+</header>
+<div class="pf-strip">
+  <span>{t("PROYECTOS PROPIOS", "PERSONAL PROJECTS")}</span>
+  <span>Java / Spring Boot</span>
+  <span>React / Next.js</span>
+  <span>PostgreSQL</span>
+</div>

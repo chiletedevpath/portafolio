@@ -1,0 +1,339 @@
+/* Shared reflow rules. Component styling lives in portfolio/*.css. */
+:root {
+  --portfolio-gutter: clamp(1rem, 3.2vw, 2.5rem);
+}
+
+.pf-shell,
+.portfolio-header nav {
+  padding-inline: var(--portfolio-gutter);
+}
+
+.pf-shell :where(div, section, article, aside, figure, nav),
+.portfolio-header nav > * {
+  min-width: 0;
+}
+
+.pf-shell :where(h1, h2, h3, p, li, small),
+.portfolio-footer {
+  overflow-wrap: anywhere;
+}
+
+.pf-shell .pf-hero h1 {
+  font-size: clamp(2.5rem, 5.4vw, 5.75rem);
+}
+
+.pf-shell .pf-case-hero h1 {
+  font-size: clamp(2.25rem, 5vw, 5rem);
+}
+
+.pf-shell .pf-section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.pf-hero,
+.pf-section-heading,
+.pf-profile,
+.pf-cv,
+.pf-two-columns {
+  column-gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.pf-shell p {
+  max-width: 68ch;
+}
+
+.pf-subnav,
+.pf-case-nav {
+  gap: 0.5rem 1.5rem;
+}
+
+.pf-subnav a,
+.pf-case-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.portfolio-header nav > div > a,
+.portfolio-header button,
+.pf-filter-bar button,
+.pf-album-controls button,
+.pf-lightbox-close,
+.replay-intro {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.portfolio-header nav > div > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pf-shell .pf-button {
+  min-height: 44px;
+  white-space: normal;
+  text-align: center;
+}
+
+.pf-feature-grid,
+.pf-support {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+}
+
+.pf-shell .pf-form input:not([type="checkbox"]),
+.pf-shell .pf-form textarea {
+  font-size: 1rem;
+  min-height: 44px;
+}
+
+.pf-cv-preview object {
+  height: clamp(20rem, 65dvh, 44rem);
+}
+
+.pf-status {
+  white-space: normal;
+}
+
+.pf-album-stage figure {
+  max-height: 65dvh;
+}
+
+.pf-album-stage figure > img {
+  object-fit: contain;
+}
+
+.pf-album-story > div:first-child {
+  flex: 1;
+}
+
+.pf-album-controls {
+  flex-shrink: 0;
+}
+
+.pf-lightbox {
+  padding: 3.5rem 1rem 1rem;
+}
+
+.pf-lightbox-close {
+  top: 0.25rem;
+  right: 0.25rem;
+}
+
+/* Tablets: prioritize readable content and a useful form width. */
+@media (max-width: 64rem) {
+  .pf-profile,
+  .pf-cv,
+  .pf-shell .pf-contact {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .pf-skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pf-shell .pf-form {
+    justify-self: start;
+    max-width: 40rem;
+  }
+
+  .pf-shell .pf-flagship,
+  .pf-project {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  }
+
+  .pf-project-copy {
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .system-panel {
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: 2rem;
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 56rem) {
+  .pf-hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding-block: 3rem;
+    gap: 2.5rem;
+  }
+
+  .pf-portrait {
+    width: 100%;
+    max-width: 28rem;
+    aspect-ratio: 5 / 4;
+    box-shadow: 10px 10px 0 var(--tema-superficie-alterna);
+  }
+
+  .pf-portrait > img {
+    object-position: center 28%;
+  }
+
+  .pf-section-heading,
+  .pf-two-columns,
+  .pf-shell .pf-flagship,
+  .pf-project {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-section-heading {
+    gap: 1.25rem;
+  }
+
+  .pf-project-art,
+  .pf-shell .pf-flagship .pf-project-art {
+    min-height: 17rem;
+  }
+
+  .pf-case-hero {
+    grid-template-columns: minmax(0, 1fr) 6rem;
+    gap: 1.5rem;
+  }
+
+  .pf-case-hero > img {
+    width: 6rem;
+    height: 6rem;
+    grid-row: auto;
+  }
+}
+
+/* Phones, including 320px and reflow at browser zoom. */
+@media (max-width: 40rem) {
+  .portfolio-header nav {
+    padding-block: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .portfolio-header nav > div {
+    gap: 1rem;
+  }
+
+  .pf-subnav {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    column-gap: 1.25rem;
+    padding-block: 0.5rem;
+  }
+
+  .pf-shell section[id] {
+    scroll-margin-top: 10rem;
+  }
+
+  .pf-skills,
+  .pf-field-row,
+  .pf-case-hero {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .pf-case-hero > img {
+    grid-row: 1;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .pf-actions > .pf-button {
+    flex: 1 1 100%;
+  }
+
+  .pf-shell .pf-flagship h3 {
+    font-size: clamp(1.6rem, 6vw, 1.9rem);
+  }
+
+  .pf-case-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem 1rem;
+    padding-block: 0.75rem;
+  }
+
+  .system-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .system-panel {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 2rem 1.25rem;
+  }
+
+  .system-node {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .pf-album-thumbs {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 1rem;
+    padding: 1rem;
+  }
+
+  .pf-album-thumbs button {
+    flex: 0 0 clamp(7.5rem, 28vw, 10rem);
+    scroll-snap-align: start;
+    font-size: 0.75rem;
+  }
+
+  .pf-album-bar,
+  .pf-album-story .pf-kicker {
+    font-size: 0.6rem;
+  }
+
+  .pf-album-dots {
+    letter-spacing: 2px;
+  }
+
+  .pf-album-story {
+    align-items: flex-end;
+  }
+
+  .pf-shell .pf-album-story h3 {
+    font-size: 1rem;
+  }
+
+  .pf-album-empty {
+    padding-bottom: 3rem;
+  }
+
+  .portfolio-footer {
+    padding: 2rem 1rem;
+  }
+
+  .welcome-inner {
+    padding: 1.25rem 1rem;
+  }
+
+  .welcome-heading h2 {
+    font-size: clamp(2.5rem, 9vw, 3.25rem);
+  }
+
+  .welcome-status-row,
+  .welcome-stage-list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-height: 32rem) and (orientation: landscape) {
+  .portfolio-header {
+    position: relative;
+  }
+
+  .pf-shell section[id] {
+    scroll-margin-top: 1rem;
+  }
+
+  .welcome-inner {
+    gap: 1.25rem;
+  }
+
+  .welcome-heading {
+    width: 100%;
+  }
+
+  .welcome-heading h2 {
+    font-size: 2.5rem;
+  }
+}

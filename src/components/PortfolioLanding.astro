@@ -1,30 +1,31 @@
 ---
-import PortfolioProjects from './PortfolioProjects.astro';
-import PortfolioContact from './PortfolioContact.astro';
-import SystemExplorer from './SystemExplorer.astro';
+import PortfolioHero from "./PortfolioHero.astro";
+import PortfolioProfile from "./PortfolioProfile.astro";
+import PortfolioResume from "./PortfolioResume.astro";
+import PortfolioProjects from "./PortfolioProjects.astro";
+import PortfolioContact from "./PortfolioContact.astro";
+import SystemExplorer from "./SystemExplorer.astro";
 
-const { lang = 'es' } = Astro.props;
-const en = lang === 'en';
-const t = (es, english) => en ? english : es;
-const root = `${en ? '/en' : ''}`;
-const cv = `/assets/portfolio/CV-Adrian-Pisco-${en ? 'EN' : 'ES'}.pdf`;
-const skills = [
-  [t('Backend y datos', 'Backend and data'), 'Java · Spring Boot · PostgreSQL · Flyway', 'ChiSabes', `${root}/proyectos/chisabes/#decisiones`],
-  [t('Interfaces web', 'Web interfaces'), 'React · Next.js · TypeScript · Astro', 'REMINEXA', `${root}/proyectos/reminexa/#funciones`],
-  [t('Diseño y calidad', 'Design and quality'), 'POO · REST · JUnit · Playwright · Git', 'ChiSabes', `${root}/proyectos/chisabes/#evidencia`],
-  [t('Integración y operación', 'Integration and operations'), 'Docker · Cloudflare · Resend · CI', 'REMINEXA', `${root}/proyectos/reminexa/#decisiones`],
-];
+const { lang = "es" } = Astro.props;
+const en = lang === "en";
+const t = (es, english) => (en ? english : es);
 ---
+
 <div class="pf-shell">
-  <nav class="pf-subnav" aria-label={t('Secciones del portafolio', 'Portfolio sections')}><a href="#trabajo">{t('Proyectos', 'Projects')}</a><a href="#enfoque">{t('Enfoque', 'Approach')}</a><a href="#perfil">{t('Perfil', 'Profile')}</a><a href="#cv">CV</a><a href="#contacto">{t('Contacto', 'Contact')}</a></nav>
-  <header class="pf-hero">
-    <div class="pf-hero-copy"><span class="pf-kicker">ADRIÁN PISCO / {t('PORTAFOLIO PROFESIONAL', 'PROFESSIONAL PORTFOLIO')}</span><h1>{t('Construyo software.', 'I build software.')}<br /><em>{t('Resuelvo problemas.', 'I solve problems.')}</em></h1><p class="pf-position">{t('Desarrollador web full stack con Java · Estudiante de Ingeniería de Sistemas e Informática', 'Java full stack web developer · Systems and Informatics Engineering student')}</p><p>{t('Construyo aplicaciones web con atención a los datos, las reglas del negocio y la experiencia de quien las utiliza.', 'I build web applications with attention to data, business rules and the people who use them.')}</p><div class="pf-actions"><a class="pf-button" href="#trabajo">{t('Explorar mi trabajo', 'Explore my work')} ↓</a><a class="pf-button pf-secondary" href={cv} download>{t('Descargar CV', 'Download CV')} ↗</a></div></div>
-    <figure class="pf-portrait"><img src="/assets/img/adrian-pisco-retrato.webp" width="640" height="800" alt={t('Retrato de Adrián Pisco', 'Portrait of Adrián Pisco')} fetchpriority="high" /><figcaption><span>{t('DESARROLLO + CRITERIO', 'DEVELOPMENT + JUDGMENT')}</span><strong>Adrián Pisco</strong><small>{t('Desde Perú, construyendo con propósito.', 'Based in Peru, building with purpose.')}</small></figcaption></figure>
-  </header>
-  <div class="pf-strip"><span>{t('PROYECTOS PROPIOS', 'PERSONAL PROJECTS')}</span><span>Java / Spring Boot</span><span>React / Next.js</span><span>PostgreSQL</span></div>
+  <nav
+    class="pf-subnav"
+    aria-label={t("Secciones del portafolio", "Portfolio sections")}
+  >
+    <a href="#trabajo">{t("Proyectos", "Projects")}</a>
+    <a href="#enfoque">{t("Enfoque", "Approach")}</a>
+    <a href="#perfil">{t("Perfil", "Profile")}</a>
+    <a href="#cv">CV</a>
+    <a href="#contacto">{t("Contacto", "Contact")}</a>
+  </nav>
+  <PortfolioHero lang={lang} />
   <PortfolioProjects lang={lang} />
   <SystemExplorer lang={lang} />
-  <section id="perfil" class="pf-section pf-profile" aria-labelledby="profile-title"><div><span class="pf-kicker">02 / {t('PERFIL', 'PROFILE')}</span><h2 id="profile-title">{t('Tecnología con disciplina operativa.', 'Technology with operational discipline.')}</h2><p>{t('Estudio Ingeniería de Sistemas e Informática en la Universidad Tecnológica del Perú y completé el programa de Desarrollo Web Fullstack con Java de Código powered by Tecsup.', 'I study Systems and Informatics Engineering at Universidad Tecnológica del Perú and completed Código powered by Tecsup’s Java Fullstack Web Development program.')}</p><p>{t('Mi trayectoria en operaciones, control y monitoreo me ha enseñado a registrar incidentes, mantener trazabilidad y responder con precisión. Aplico ese criterio al desarrollo de software.', 'My background in operations, control and monitoring has taught me to record incidents, maintain traceability and respond precisely. I bring that judgment to software development.')}</p><a class="pf-case-link" href="#contacto">{t('Conectar conmigo', 'Connect with me')} ↗</a></div><div class="pf-skills">{skills.map(([title, tech, project, href]) => <article><h3>{title}</h3><p>{tech}</p><a href={href}>{t('Ver aplicado en', 'See it in')} {project} ↗</a></article>)}</div></section>
-  <section id="cv" class="pf-section pf-cv" aria-labelledby="cv-title"><div><span class="pf-kicker">03 / {t('TRAYECTORIA', 'BACKGROUND')}</span><h2 id="cv-title">{t('Mi perfil, en un documento.', 'My profile, in one document.')}</h2><p>{t('Formación, competencias, proyectos personales y experiencia. Una versión pública preparada para compartir.', 'Education, skills, personal projects and experience. A public version prepared for sharing.')}</p><small>{t('Actualizado el 13 de octubre de 2026 · PDF con texto seleccionable', 'Updated October 13, 2026 · PDF with selectable text')}</small><div class="pf-actions"><a class="pf-button" href={cv} download>{t('Descargar CV en español', 'Download CV in English')} ↓</a><a class="pf-button pf-secondary" href={`/assets/portfolio/CV-Adrian-Pisco-${en ? 'ES' : 'EN'}.pdf`} download>{en ? 'CV en español' : 'CV in English'} ↓</a></div><details class="pf-cv-preview"><summary>{t('Vista previa del CV', 'Preview CV')}</summary><object data={cv} type="application/pdf" width="100%" height="700" aria-label={t('Vista previa del currículum', 'Resume preview')}><p><a href={cv}>{t('Abrir el PDF', 'Open PDF')}</a></p></object><a href={cv} target="_blank" rel="noopener noreferrer">{t('Abrir PDF en otra pestaña', 'Open PDF in another tab')} ↗</a></details></div><div class="pf-timeline"><article><span>2024 →</span><h3>{t('Ingeniería de Sistemas e Informática', 'Systems and Informatics Engineering')}</h3><p>Universidad Tecnológica del Perú</p><small>{t('En curso', 'In progress')}</small></article><article><span>2025 — 2026</span><h3>{t('Desarrollo Web Fullstack con Java', 'Java Fullstack Web Development')}</h3><p>Código powered by Tecsup · 240 {t('horas', 'hours')}</p></article><article><span>2018 →</span><h3>{t('Operaciones, control y monitoreo', 'Operations, control and monitoring')}</h3><p>{t('Experiencia en seguimiento de incidentes, reportes y coordinación operativa.', 'Experience in incident tracking, reporting and operational coordination.')}</p></article></div></section>
+  <PortfolioProfile lang={lang} />
+  <PortfolioResume lang={lang} />
   <PortfolioContact lang={lang} />
 </div>
