@@ -69,4 +69,6 @@ npm run dev
 
 `npm run build` genera el sitio y `npm test` valida la experiencia después de compilar. Los cambios en `main` pasan por pruebas y despliegue automático. Los datos de los casos están en `src/data/portfolio.js`; las capturas y los enlaces de sustento, en `src/data/projectMedia.js`.
 
+Antes de publicar, el build comprueba la lista de archivos permitidos en `scripts/check-public.mjs`. Las notas internas y el CV original se conservan localmente; al sitio llegan las páginas, sus recursos y los PDF públicos. La política de recursos del navegador está en `astro.config.mjs`.
+
 </details>

@@ -9,3 +9,15 @@ playwright-report/
 cv/
 *.log
 .npm-cache/
+# Internal planning stays local; only the professional presentation is public.
+/docs/estado-del-avance.md
+/docs/ruta-de-cierre.md
+# Private documents, credentials and temporary exports never belong in Git.
+*.docx
+*.pem
+*.key
+*.p12
+*.pfx
+*.bak
+*.tmp
+/exports/
