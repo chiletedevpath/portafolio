@@ -1,4 +1,5 @@
 ---
+import PortfolioStack from "./PortfolioStack.astro";
 const { lang = "es" } = Astro.props;
 const en = lang === "en";
 const t = (es, english) => (en ? english : es);
@@ -56,9 +57,4 @@ const cv = `/assets/portfolio/CV-Adrian-Pisco-${en ? "EN" : "ES"}.pdf`;
     </figcaption>
   </figure>
 </header>
-<div class="pf-strip">
-  <span>{t("PROYECTOS PROPIOS", "PERSONAL PROJECTS")}</span>
-  <span>Java / Spring Boot</span>
-  <span>React / Next.js</span>
-  <span>PostgreSQL</span>
-</div>
+<PortfolioStack lang={lang} />

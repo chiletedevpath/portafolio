@@ -145,13 +145,6 @@ body {
 .pf-subnav {
   font: 500 0.75rem var(--fuente-mono);
 }
-.pf-strip {
-  padding: 26px 0;
-  border-style: dashed;
-}
-.pf-strip span:first-child {
-  color: var(--tema-acento);
-}
 .pf-project {
   transition:
     transform 0.25s,
