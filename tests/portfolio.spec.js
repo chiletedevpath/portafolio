@@ -8,6 +8,11 @@ for (const language of ['es','en']) {
     await expect(page.locator('html')).toHaveAttribute('lang',language);
     await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href',`https://portafolio.chiletedevpath.com${root}/`);
     await expect(page.locator('.pf-project')).toHaveCount(3);
+    const starts = { chisabes: '2026-08-13', reminexa: '2026-09-10', 'chiletedevpath-web': '2026-06-24' };
+    for (const date of Object.values(starts)) {
+      await expect(page.locator(`.pf-project time[datetime="${date}"]`)).toHaveCount(1);
+    }
+    await expect(page.locator('.pf-project-start').first()).toContainText(language === 'en' ? 'Documented start' : 'Inicio documentado');
     await expect(page.locator('.pf-project').first()).toHaveAttribute('data-project-kind','platform');
     await expect(page.locator('.pf-flagship h3')).toHaveText('Chilete DevPath');
     await expect(page.locator('[data-project-kind=systems]')).toHaveCount(2);
@@ -15,7 +20,7 @@ for (const language of ['es','en']) {
     const [download]=await Promise.all([page.waitForEvent('download'),page.locator('.pf-hero a[download]').click()]);
     expect(download.suggestedFilename()).toBe(`CV-Adrian-Pisco-${language.toUpperCase()}.pdf`);
     for(const href of await page.locator('.pf-shell a[href^="/"]').evaluateAll(links=>[...new Set(links.map(a=>a.getAttribute('href').split('#')[0]))])){if(href)expect((await request.get(href)).status(),href).toBe(200);}
-    for(const slug of ['chisabes','reminexa','chiletedevpath-web']){await page.goto(`${root}/proyectos/${slug}/`);await expect(page.locator('.pf-detail h1')).toBeVisible();await expect(page.locator('#resultado .pf-outcomes li')).toHaveCount(3);await expect(page.locator('.pf-access-note')).toBeVisible();await expect(page.locator('[data-welcome-route]')).not.toBeVisible();}
+    for(const slug of ['chisabes','reminexa','chiletedevpath-web']){await page.goto(`${root}/proyectos/${slug}/`);await expect(page.locator('.pf-detail h1')).toBeVisible();await expect(page.locator('.pf-project-start time')).toHaveAttribute('datetime', starts[slug]);await expect(page.locator('#resultado .pf-outcomes li')).toHaveCount(3);await expect(page.locator('.pf-access-note')).toBeVisible();await expect(page.locator('[data-welcome-route]')).not.toBeVisible();}
   });
 }
 test('welcome route auto-completes and supports Escape',async({page})=>{

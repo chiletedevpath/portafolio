@@ -1,0 +1,24 @@
+---
+const { date, lang = "es" } = Astro.props;
+const en = lang === "en";
+// A date-only value stays unchanged across time zones.
+const instant = new Date(`${date}T00:00:00Z`);
+const locale = en ? "en-GB" : "es-PE";
+const label = new Intl.DateTimeFormat(locale, {
+  month: "short",
+  year: "numeric",
+  timeZone: "UTC",
+}).format(instant);
+const fullDate = new Intl.DateTimeFormat(locale, {
+  dateStyle: "long",
+  timeZone: "UTC",
+}).format(instant);
+---
+
+<span
+  class="pf-project-start"
+  title={`${en ? "First development record in Git" : "Primer registro de desarrollo en Git"}: ${fullDate}`}
+>
+  {en ? "Documented start" : "Inicio documentado"} ·{" "}
+  <time datetime={date}>{label}</time>
+</span>

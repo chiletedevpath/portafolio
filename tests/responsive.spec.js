@@ -78,7 +78,7 @@ for (const language of ["es", "en"])
         } else {
           await page.locator("[data-album-thumb]").last().click();
           await expect(page.locator("[data-album-count]")).toHaveText(
-            "03 / 03",
+            route === "/proyectos/chiletedevpath-web/" ? "06 / 06" : "03 / 03",
           );
           await expect(page.locator("[data-album-prev]")).toHaveCSS(
             "min-width",
