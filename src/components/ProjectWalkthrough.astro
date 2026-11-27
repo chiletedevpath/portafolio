@@ -1,0 +1,15 @@
+---
+const { name, lang = 'es' } = Astro.props;
+const t = (es, en) => lang === 'en' ? en : es;
+---
+<section id="presentacion" class="pf-section pf-walkthrough" aria-labelledby="walkthrough-title">
+  <div class="pf-section-heading">
+    <div><span class="pf-kicker">{t('EL PROYECTO, EN MI VOZ', 'THE PROJECT, IN MY WORDS')}</span><h2 id="walkthrough-title">{t('Te cuento cómo lo construí.', 'How I built it.')}</h2></div>
+    <p>{t('Una explicación breve del problema, mi aporte y las decisiones que dieron forma al proyecto.', 'A short explanation of the problem, my contribution and the decisions that shaped the project.')}</p>
+  </div>
+  <div class="pf-video-reserved" data-video-reserved>
+    <div class="pf-video-orbit" aria-hidden="true"><span>AP</span></div>
+    <div class="pf-video-copy"><span class="pf-kicker">{name}</span><h3>{t('Detrás del proyecto', 'Behind the project')}</h3><p>{t('Próximamente: mi explicación en video.', 'Coming soon: my video walkthrough.')}</p></div>
+    <div class="pf-video-meta"><span>{t('PRESENTACIÓN PERSONAL', 'PERSONAL PRESENTATION')}</span><span>{t('Duración prevista: 2–4 min', 'Planned length: 2–4 min')}</span></div>
+  </div>
+</section>

@@ -2,6 +2,15 @@
   display: grid;
   gap: 30px;
 }
+.pf-project-start {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--tema-texto-suave);
+  font: 400 0.68rem/1.6 var(--fuente-mono);
+}
+.pf-project-start time {
+  white-space: nowrap;
+}
 .pf-project {
   display: grid;
   grid-template-columns: 0.85fr 1.15fr;

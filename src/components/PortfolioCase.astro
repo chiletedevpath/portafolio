@@ -1,5 +1,8 @@
 ---
 import ProjectMedia from './ProjectMedia.astro';
+import ProjectEngineering from './ProjectEngineering.astro';
+import ProjectWalkthrough from './ProjectWalkthrough.astro';
+import ProjectStartDate from './ProjectStartDate.astro';
 import ProjectSupport from './ProjectSupport.astro';
 import { projectMedia } from '../data/projectMedia.js';
 const { project, lang = 'es' } = Astro.props;
@@ -15,7 +18,7 @@ const media = projectMedia[project.slug];
   <header class:list={['pf-case-hero', `pf-${project.accent}`]}>
     <div>
       <span class="pf-kicker">{flagship ? t('MI PROYECTO INSIGNIA', 'MY FLAGSHIP PROJECT') : t('SISTEMA APLICADO', 'APPLIED SYSTEM')} · {copy.category}</span>
-      <h1>{project.name}</h1><p>{copy.summary}</p><span class="pf-status">{copy.status}</span>
+      <h1>{project.name}</h1><ProjectStartDate date={project.startedAt} lang={lang} /><p>{copy.summary}</p><span class="pf-status">{copy.status}</span>
       <div class="pf-actions"><a class="pf-button" href={project.url} target="_blank" rel="noopener noreferrer">{flagship ? t('Explorar la plataforma', 'Explore the platform') : t('Abrir aplicación', 'Open application')} ↗</a>{project.repository && <a class="pf-button pf-secondary" href={project.repository} target="_blank" rel="noopener noreferrer">{t('Repositorio', 'Repository')} ↗</a>}<a class="pf-button pf-secondary" href={`${root}/#contacto`}>{t('Conversar sobre el proyecto', 'Discuss the project')}</a></div>
       <small class="pf-access-note">{copy.access}</small>
     </div>
@@ -23,22 +26,19 @@ const media = projectMedia[project.slug];
   </header>
   <ul class="pf-tags pf-case-tags" aria-label={t('Tecnologías', 'Technologies')}>{project.stack.map(tech => <li>{tech}</li>)}</ul>
   <nav class="pf-case-nav" aria-label={t('Contenido del caso', 'Case contents')}>
-    <a href="#problema">{t('Problema y aporte', 'Problem and role')}</a><a href="#demostracion">{t('Álbum del proyecto', 'Project album')}</a><a href="#funciones">{t('Solución', 'Solution')}</a><a href="#decisiones">{t('Decisiones técnicas', 'Technical decisions')}</a><a href="#resultado">{t('Resultado', 'Outcome')}</a><a href="#evidencia">{t('Sustento', 'Supporting evidence')}</a>
+    <a href="#problema">{t('Problema y aporte', 'Problem and role')}</a><a href="#presentacion">{t('Mi explicación', 'My walkthrough')}</a><a href="#demostracion">{t('Álbum del proyecto', 'Project album')}</a><a href="#funciones">{t('Solución', 'Solution')}</a><a href="#decisiones">{t('Decisiones técnicas', 'Technical decisions')}</a><a href="#resultado">{t('Resultado', 'Outcome')}</a><a href="#evidencia">{t('Sustento', 'Supporting evidence')}</a>
   </nav>
   <section id="problema" class="pf-section pf-two-columns">
     <div><span class="pf-kicker">01 / {t('CONTEXTO', 'CONTEXT')}</span><h2>{t('El problema', 'The problem')}</h2><p>{copy.problem}</p></div>
     <aside class="pf-note"><h3>{t('Mi participación', 'My role')}</h3><p>{copy.role}</p><small>{t('Proyecto personal · Chilete DevPath', 'Personal project · Chilete DevPath')}</small></aside>
   </section>
+  <ProjectWalkthrough name={project.name} lang={lang} />
   <ProjectMedia media={media} lang={lang} />
   <section id="funciones" class="pf-section">
     <span class="pf-kicker">02 / {t('SOLUCIÓN', 'SOLUTION')}</span><h2>{t('Qué permite hacer', 'What it enables')}</h2>
     <div class="pf-feature-grid">{copy.features.map(([title, text], index) => <article><span class="pf-kicker">0{index + 1}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
   </section>
-  <section id="decisiones" class="pf-section">
-    <span class="pf-kicker">03 / {t('DISEÑO DEL SISTEMA', 'SYSTEM DESIGN')}</span><h2>{t('Decisiones que sostienen la solución.', 'Decisions behind the solution.')}</h2>
-    <figure class="pf-architecture"><ol>{project.architecture.map(node => <li>{node}</li>)}</ol><figcaption>{t('Esquema simplificado de componentes; no representa una captura de la aplicación.', 'Simplified component diagram; this is not an application screenshot.')}</figcaption></figure>
-    <div class="pf-decision-list">{copy.decisions.map(([title, text], index) => <article><span>0{index + 1}</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
-  </section>
+  <ProjectEngineering project={project} lang={lang} />
   <section id="resultado" class="pf-section pf-two-columns">
     <div><span class="pf-kicker">04 / {t('RESULTADO', 'OUTCOME')}</span><h2>{t('Qué resolví con este proyecto.', 'What I solved with this project.')}</h2></div>
     <ul class="pf-outcomes">{copy.outcomes.map(outcome => <li>{outcome}</li>)}</ul>

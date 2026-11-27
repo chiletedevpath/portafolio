@@ -85,19 +85,6 @@
   font-size: 0.85rem;
   color: #e4efec;
 }
-.pf-strip {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  border-block: 1px solid var(--tema-borde);
-  padding: 23px 0;
-  font: 600 0.8rem var(--fuente-mono);
-  color: var(--tema-texto-suave);
-}
-.pf-strip span:first-child {
-  color: var(--tema-acento);
-}
 @media (max-width: 900px) {
   .pf-hero {
     gap: 35px;
@@ -129,9 +116,5 @@
   }
   .pf-portrait figcaption strong {
     font-size: 1.3rem;
-  }
-  .pf-strip {
-    font-size: 0.65rem;
-    gap: 15px;
   }
 }

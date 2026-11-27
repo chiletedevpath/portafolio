@@ -8,6 +8,14 @@
   box-shadow: 0 25px 80px #02081730;
   overflow: hidden;
 }
+.pf-shell .pf-capture-note {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+}
+.pf-capture-note a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 .pf-album-bar {
   display: flex;
   justify-content: space-between;
@@ -286,4 +294,49 @@
   .pf-album-thumb-art > span {
     font-size: 1.2rem;
   }
+}
+.pf-video-reserved {
+  position: relative;
+  display: flex;
+  min-height: clamp(300px, 36vw, 490px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 3rem 1.5rem 5rem;
+  overflow: hidden;
+  border: 1px solid var(--tema-borde);
+  border-radius: 18px;
+  background: radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--tema-acento) 15%, transparent), transparent 65%), var(--tema-superficie);
+  text-align: center;
+}
+.pf-video-orbit {
+  display: grid;
+  place-items: center;
+  width: 100px;
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--tema-acento) 55%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 14px color-mix(in srgb, var(--tema-acento) 5%, transparent), 0 0 60px color-mix(in srgb, var(--tema-acento) 14%, transparent);
+  color: var(--tema-acento);
+  font: 600 1.5rem var(--fuente-mono);
+}
+.pf-video-copy { max-width: 38rem; }
+.pf-video-copy h3 { margin: .75rem 0; font-size: clamp(1.5rem, 3vw, 2.3rem); }
+.pf-video-copy p { margin: 0; }
+.pf-video-meta {
+  position: absolute;
+  bottom: 0;
+  inset-inline: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .5rem 1rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--tema-borde);
+  color: var(--tema-texto-suave);
+  font: .65rem/1.6 var(--fuente-mono);
+}
+@media (max-width: 480px) {
+  .pf-video-meta { justify-content: center; }
 }

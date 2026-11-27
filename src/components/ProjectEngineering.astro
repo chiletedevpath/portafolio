@@ -1,0 +1,13 @@
+---
+const { project, lang = 'es' } = Astro.props;
+const t = (es, en) => lang === 'en' ? en : es;
+---
+<section id="decisiones" class="pf-section pf-engineering" aria-labelledby="engineering-title">
+  <div class="pf-section-heading"><div><span class="pf-kicker">03 / {t('DISEÑO DEL SISTEMA', 'SYSTEM DESIGN')}</span><h2 id="engineering-title">{t('Así está construido.', 'How it is built.')}</h2></div><p>{t('Las piezas del proyecto y las decisiones que las conectan.', 'The parts of the project and the decisions that connect them.')}</p></div>
+  <figure class="pf-system-map">
+    <div class="pf-system-map-heading"><span class="pf-kicker">{t('MAPA DE COMPONENTES', 'COMPONENT MAP')}</span><span>{project.name}</span></div>
+    <ol>{project.architecture.map((node, index) => <li><span class="pf-node-symbol" aria-hidden="true">{index === 0 ? '</>' : index === 1 ? '{ }' : '⌘'}</span><div><span class="pf-node-index">{t('COMPONENTE', 'COMPONENT')} / 0{index + 1}</span><strong>{node}</strong></div><span class="pf-node-dot" aria-hidden="true"></span></li>)}</ol>
+    <figcaption>{t('Vista simplificada de la arquitectura del proyecto.', 'Simplified view of the project architecture.')}</figcaption>
+  </figure>
+  <div class="pf-engineering-decisions">{project[lang].decisions.map(([title, text], index) => <article><div class="pf-decision-top"><span>0{index + 1}</span><span aria-hidden="true">↗</span></div><h3>{title}</h3><p>{text}</p></article>)}</div>
+</section>

@@ -1,6 +1,8 @@
+// startedAt: earliest development commit in each project's complete Git history (local date).
 export const portfolioProjects = [
   {
     "slug": "chisabes",
+    "startedAt": "2026-08-13",
     "name": "ChiSabes",
     "number": "01",
     "accent": "lime",
@@ -109,6 +111,7 @@ export const portfolioProjects = [
   },
   {
     "slug": "reminexa",
+    "startedAt": "2026-09-10",
     "name": "REMINEXA",
     "number": "02",
     "accent": "aqua",
@@ -219,6 +222,7 @@ export const portfolioProjects = [
   },
   {
     "slug": "chiletedevpath-web",
+    "startedAt": "2026-06-24",
     "name": "Chilete DevPath",
     "number": "03",
     "accent": "coral",

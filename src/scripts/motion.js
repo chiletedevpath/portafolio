@@ -9,7 +9,7 @@ export function revealElement(element, delay = 0) {
 }
 if (!preference.matches && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){revealElement(entry.target);observer.unobserve(entry.target);}}),{threshold:.07});
-  document.querySelectorAll('.pf-section-heading,.pf-project,.system-console,.pf-skills article,.pf-feature-grid article,.pf-architecture,.pf-album,.pf-support article,.pf-outcomes li').forEach(node=>observer.observe(node));
+  document.querySelectorAll('.pf-section-heading,.pf-project,.system-console,.pf-skills article,.pf-feature-grid article,.pf-system-map,.pf-engineering-decisions article,.pf-video-reserved,.pf-album,.pf-support article,.pf-outcomes li').forEach(node=>observer.observe(node));
   preference.addEventListener('change',()=>{if(preference.matches)observer.disconnect();});
 }
 preference.addEventListener('change',()=>{if(preference.matches){running.forEach(animation=>animation.cancel());running.clear();}});
